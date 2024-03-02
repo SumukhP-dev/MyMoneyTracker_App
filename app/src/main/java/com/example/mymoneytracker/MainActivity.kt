@@ -47,8 +47,8 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        // Set to true to test login page
-        if (true) {
+        // Set to false to not test login page
+        if (false) {
             // show Welcome Screen
             startActivity(Intent(this, LoginActivity::class.java))
         }
