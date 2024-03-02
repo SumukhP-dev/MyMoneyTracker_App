@@ -47,7 +47,8 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        if (isFirstTime()) {
+        // Set to true to test login page
+        if (true) {
             // show Welcome Screen
             startActivity(Intent(this, LoginActivity::class.java))
         }
