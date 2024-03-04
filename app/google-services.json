@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "974789632860",
+    "project_id": "mymoneytracker-ac604",
+    "storage_bucket": "mymoneytracker-ac604.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974789632860:android:81c8f95821a863cdbdd799",
+        "android_client_info": {
+          "package_name": "com.example.mymoneytracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH6WZGwmMCHKSHhYteZsq6QQ48UdGbXqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
