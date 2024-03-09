@@ -46,5 +46,17 @@
         <action
             android:id="@+id/action_historyFragment_to_nav_home"
             app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_historyFragment_to_addDataFragment"
+            app:destination="@id/addDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addDataFragment"
+        android:name="com.example.mymoneytracker.ui.addData.AddDataFragment"
+        android:label="fragment_add_data"
+        tools:layout="@layout/fragment_add_data" >
+        <action
+            android:id="@+id/action_addDataFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
 </navigation>
