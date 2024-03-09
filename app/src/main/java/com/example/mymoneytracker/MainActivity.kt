@@ -11,10 +11,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.mymoneytracker.databinding.ActivityMainBinding
+import com.example.mymoneytracker.ui.login.LoginActivity
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
-import android.content.SharedPreferences
-import com.example.mymoneytracker.ui.login.LoginActivity
 
 
 class MainActivity : AppCompatActivity() {
