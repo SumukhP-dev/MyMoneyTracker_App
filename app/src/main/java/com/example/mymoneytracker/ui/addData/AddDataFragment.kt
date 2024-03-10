@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.mymoneytracker.R
+import com.example.mymoneytracker.databinding.FragmentAddDataBinding
 
 class AddDataFragment : Fragment() {
 
@@ -15,12 +17,20 @@ class AddDataFragment : Fragment() {
     }
 
     private lateinit var viewModel: AddDataViewModel
-
+    private var _binding: FragmentAddDataBinding? = null
+    private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_add_data, container, false)
+        _binding = FragmentAddDataBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        binding.BackXButton.setOnClickListener {
+            findNavController().navigate(R.id.action_addDataFragment_to_historyFragment)
+        }
+
+        return root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
