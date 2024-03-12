@@ -1,6 +1,7 @@
 package com.example.mymoneytracker.ui.history
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,7 @@ import com.example.mymoneytracker.databinding.FragmentHomeBinding
 import com.example.mymoneytracker.ui.home.HomeViewModel
 import java.security.AccessController.getContext
 import com.example.mymoneytracker.databinding.FragmentHistoryBinding
+import java.util.Arrays
 
 
 class HistoryFragment : Fragment() {
@@ -29,6 +31,8 @@ class HistoryFragment : Fragment() {
     private lateinit var viewModel: HistoryViewModel
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
+    private var dataList = emptyArray<String>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,6 +45,19 @@ class HistoryFragment : Fragment() {
             findNavController().navigate(R.id.action_historyFragment_to_nav_home)
         }
 
+        val args = this.arguments
+        Log.d("data0", args.toString())
+        if(args != null) {
+            val inputData: Array<String>? = args?.get("data") as Array<String>
+            Log.d("data1", Arrays.toString(inputData))
+
+            for (counter in 0..2) {
+                if(inputData != null) {
+                    dataList += inputData[counter]
+                }
+            }
+        }
+
 
         // getting the recyclerview by its id
         val recyclerview = binding.recyclerview
@@ -50,12 +67,14 @@ class HistoryFragment : Fragment() {
 
         // ArrayList of class ItemsViewModel
         val data = ArrayList<ItemsViewModel>()
+        var counterInc = 0
 
-        // This loop will create 20 Views containing
-        // the image with the count of view
-        for (i in 1..20) {
-            data.add(ItemsViewModel(R.drawable.ic_baseline_folder_24, "Item " + i))
+        for(counter in 1..(dataList.size/3)) {
+            data.add(ItemsViewModel(dataList[counter+counterInc], dataList[counter+counterInc], dataList[counter+counterInc]))
+            counterInc += 3
         }
+        Log.d("data1", data.toString())
+
 
         // This will pass the ArrayList to our Adapter
         val adapter = CustomAdapter(data)

@@ -64,7 +64,7 @@
         app:layout_constraintVertical_bias="0.532" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/moneyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -78,7 +78,7 @@
         app:layout_constraintVertical_bias="0.19" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/dateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -92,7 +92,7 @@
         app:layout_constraintVertical_bias="0.271" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/descriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
@@ -115,7 +115,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionText"
         app:layout_constraintVertical_bias="0.319" />
 
     <Button

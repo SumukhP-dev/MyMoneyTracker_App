@@ -1,5 +1,6 @@
 package com.example.mymoneytracker.ui.home
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,8 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        var netWorth = -100
+
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
@@ -35,6 +38,14 @@ class HomeFragment : Fragment() {
 
         binding.SummaryButton.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_summaryFragment)
+        }
+
+        if(netWorth >= 0) {
+            binding.NetWorthAmount.setTextColor(Color.parseColor("#00FF0A"))
+            binding.NetWorthAmount.text = "$" + netWorth.toString()
+        } else {
+            binding.NetWorthAmount.setTextColor(Color.parseColor("#FF1100"))
+            binding.NetWorthAmount.text = "($" + netWorth.toString() + ")"
         }
 
         return root
