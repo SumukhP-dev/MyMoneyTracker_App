@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentAddDataBinding
@@ -35,12 +38,9 @@ class AddDataFragment : Fragment() {
         binding.addTransactionButton.setOnClickListener {
             findNavController().navigate(R.id.action_addDataFragment_to_historyFragment)
 
-            var dataList = arrayOf<String>(binding.dateText.toString(), binding.moneyText.toString(), binding.descriptionText.toString())
+            var dataList = arrayOf(binding.dateText.text.toString(), binding.moneyText.text.toString(), binding.descriptionText.text.toString())
 
-            val bundle = Bundle()
-            bundle.putStringArray("data", dataList)
-            HistoryFragment().arguments = bundle
-            fragmentManager?.beginTransaction()?.replace(R.id.frameLayout, HistoryFragment())?.commit()
+            setFragmentResult("requestKey", bundleOf("bundleKey" to dataList))
         }
 
         return root

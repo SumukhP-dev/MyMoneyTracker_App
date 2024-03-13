@@ -5,21 +5,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ListView
-import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentResultListener
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.mymoneytracker.R
-import com.example.mymoneytracker.databinding.ActivityMainBinding
-import com.example.mymoneytracker.databinding.FragmentHomeBinding
-import com.example.mymoneytracker.ui.home.HomeViewModel
-import java.security.AccessController.getContext
 import com.example.mymoneytracker.databinding.FragmentHistoryBinding
-import java.util.Arrays
+import org.checkerframework.checker.units.qual.A
+import kotlin.properties.Delegates
 
 
 class HistoryFragment : Fragment() {
@@ -29,9 +26,11 @@ class HistoryFragment : Fragment() {
     }
 
     private lateinit var viewModel: HistoryViewModel
+    private lateinit var inputData: Array<String>
+    private lateinit var data: ArrayList<ItemsViewModel>
+
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
-    private var dataList = emptyArray<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,20 +44,6 @@ class HistoryFragment : Fragment() {
             findNavController().navigate(R.id.action_historyFragment_to_nav_home)
         }
 
-        val args = this.arguments
-        Log.d("data0", args.toString())
-        if(args != null) {
-            val inputData: Array<String>? = args?.get("data") as Array<String>
-            Log.d("data1", Arrays.toString(inputData))
-
-            for (counter in 0..2) {
-                if(inputData != null) {
-                    dataList += inputData[counter]
-                }
-            }
-        }
-
-
         // getting the recyclerview by its id
         val recyclerview = binding.recyclerview
 
@@ -66,15 +51,21 @@ class HistoryFragment : Fragment() {
         recyclerview.layoutManager = LinearLayoutManager(context)
 
         // ArrayList of class ItemsViewModel
-        val data = ArrayList<ItemsViewModel>()
-        var counterInc = 0
-
-        for(counter in 1..(dataList.size/3)) {
-            data.add(ItemsViewModel(dataList[counter+counterInc], dataList[counter+counterInc], dataList[counter+counterInc]))
-            counterInc += 3
+        if(!this::data.isInitialized) {
+            data = ArrayList<ItemsViewModel>()
         }
-        Log.d("data1", data.toString())
 
+        data.add(ItemsViewModel("Date", "Money", "Description"))
+
+
+        setFragmentResultListener("requestKey") { requestKey, bundle ->
+            // We use a String here, but any type that can be put in a Bundle is supported.
+            inputData = bundle.getStringArray("bundleKey")!!
+            var newDataList = arrayOf<String>()
+            newDataList = newDataList.plus(inputData)
+            Log.d("issue2", newDataList.size.toString())
+            data.add(ItemsViewModel(newDataList[0], newDataList[1], newDataList[2]))
+        }
 
         // This will pass the ArrayList to our Adapter
         val adapter = CustomAdapter(data)
@@ -82,10 +73,8 @@ class HistoryFragment : Fragment() {
         // Setting the Adapter with the recyclerview
         recyclerview.adapter = adapter
 
-
         return root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
