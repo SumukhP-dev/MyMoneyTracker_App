@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.mymoneytracker.R
@@ -24,7 +25,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        var netWorth = -100
+        var netWorth: Int = -100
 
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
@@ -40,14 +41,21 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_nav_home_to_summaryFragment)
         }
 
-        if(netWorth >= 0) {
-            binding.NetWorthAmount.setTextColor(Color.parseColor("#00FF0A"))
-            binding.NetWorthAmount.text = "$" + netWorth.toString()
-        } else {
-            binding.NetWorthAmount.setTextColor(Color.parseColor("#FF1100"))
-            binding.NetWorthAmount.text = "($" + netWorth.toString() + ")"
+        fun netWorthColorChange(netWorth: Int) {
+            if (netWorth >= 0) {
+                binding.NetWorthAmount.setTextColor(Color.parseColor("#00FF0A"))
+                binding.NetWorthAmount.text = "$" + netWorth.toString()
+            } else {
+                binding.NetWorthAmount.setTextColor(Color.parseColor("#FF1100"))
+                binding.NetWorthAmount.text = "($" + netWorth.toString() + ")"
+            }
         }
 
+        setFragmentResultListener("requestKey2") { requestKey, bundle ->
+            netWorth = bundle.getInt("bundleKey2")
+            binding.NetWorthAmount.text = netWorth.toString()
+            netWorthColorChange(netWorth)
+        }
         return root
     }
 

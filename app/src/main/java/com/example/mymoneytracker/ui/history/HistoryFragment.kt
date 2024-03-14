@@ -1,13 +1,14 @@
 package com.example.mymoneytracker.ui.history
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentResultListener
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
@@ -15,7 +16,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHistoryBinding
-import org.checkerframework.checker.units.qual.A
 import kotlin.properties.Delegates
 
 
@@ -31,7 +31,9 @@ class HistoryFragment : Fragment() {
 
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
+    private var netWorthCalculated = 0
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,6 +41,19 @@ class HistoryFragment : Fragment() {
     ): View? {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+            // ArrayList of class ItemsViewModel
+        if(!this::data.isInitialized) {
+            if(savedInstanceState?.getSerializable("Data_Array_List") != null){
+                Log.d("issue6", "1")
+                data =
+                    savedInstanceState?.getSerializable("Data_Array_List") as ArrayList<ItemsViewModel>
+            } else {
+                Log.d("issue6", "2")
+                data = ArrayList<ItemsViewModel>()
+            }
+
+        }
 
         binding.BackHistoryButton.setOnClickListener {
             findNavController().navigate(R.id.action_historyFragment_to_nav_home)
@@ -50,21 +65,16 @@ class HistoryFragment : Fragment() {
         // this creates a vertical layout Manager
         recyclerview.layoutManager = LinearLayoutManager(context)
 
-        // ArrayList of class ItemsViewModel
-        if(!this::data.isInitialized) {
-            data = ArrayList<ItemsViewModel>()
-        }
 
         data.add(ItemsViewModel("Date", "Money", "Description"))
-
 
         setFragmentResultListener("requestKey") { requestKey, bundle ->
             // We use a String here, but any type that can be put in a Bundle is supported.
             inputData = bundle.getStringArray("bundleKey")!!
             var newDataList = arrayOf<String>()
             newDataList = newDataList.plus(inputData)
-            Log.d("issue2", newDataList.size.toString())
-            data.add(ItemsViewModel(newDataList[0], newDataList[1], newDataList[2]))
+            data.add(ItemsViewModel(newDataList[0], "$" + newDataList[1], newDataList[2]))
+            changeNetWorth(newDataList[1].toInt())
         }
 
         // This will pass the ArrayList to our Adapter
@@ -73,7 +83,15 @@ class HistoryFragment : Fragment() {
         // Setting the Adapter with the recyclerview
         recyclerview.adapter = adapter
 
+        savedInstanceState?.putSerializable("Data_Array_List", data)
+        val type = ArrayList<ItemsViewModel>().javaClass
+
         return root
+    }
+    fun changeNetWorth(valueChanged: Int) {
+        netWorthCalculated += valueChanged
+        Log.d("test9", netWorthCalculated.toString())
+        setFragmentResult("requestKey2", bundleOf("bundleKey2" to netWorthCalculated))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
