@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        var netWorth: Int = -100
+        var netWorth: Int = 0
 
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
