@@ -11,21 +11,21 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHomeBinding
+import kotlin.properties.Delegates
 
 class HomeFragment : Fragment() {
 
+    private var netWorth by Delegates.notNull<Int>()
     private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        var netWorth: Int = 0
 
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)

@@ -1,61 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="900dp"
     tools:context=".ui.summary.SummaryFragment">
 
-    <Button
-        android:id="@+id/BackSummaryButton"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.978" />
+        android:minHeight="1000dp"
+        tools:layout_editor_absoluteY="1dp">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tips"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515"
-        tools:textColor="#000000"
-        tools:textSize="34sp" />
+        <Button
+            android:id="@+id/BackSummaryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="5dp"
+            android:text="Back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.109"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.986" />
 
-    <TextView
-        android:id="@+id/tipsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.155"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.123" />
+        <TextView
+            android:id="@+id/Breakdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Breakdown"
+            android:textColor="#000000"
+            app:autoSizeMinTextSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.065"
+            tools:textSize="34sp" />
 
-    <TextView
-        android:id="@+id/Breakdown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Breakdown"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.089"
-        tools:textSize="34sp" />
+        <TextView
+            android:id="@+id/Tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tips"
+            android:textColor="#000000"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toTopOf="@+id/BackSummaryButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Breakdown"
+            app:layout_constraintVertical_bias="0.548" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tipsText"
+            android:layout_width="463dp"
+            android:layout_height="331dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/BackSummaryButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Tips"
+            app:layout_constraintVertical_bias="0.271" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

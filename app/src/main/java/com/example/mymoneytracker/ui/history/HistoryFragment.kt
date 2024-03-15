@@ -33,6 +33,22 @@ class HistoryFragment : Fragment() {
     private val binding get() = _binding!!
     private var netWorthCalculated = 0
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("issue02", "path2")
+        if(savedInstanceState?.getSerializable("Data_Array_List") != null) {
+            data =
+                savedInstanceState?.getSerializable("Data_Array_List") as ArrayList<ItemsViewModel>
+        }
+        Log.d("issue02", "path2: " + savedInstanceState?.getSerializable("Data_Array_List").toString())
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.d("issue01", "path1")
+        outState.putSerializable("Data_Array_List", data)
+    }
+
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,18 +57,12 @@ class HistoryFragment : Fragment() {
     ): View? {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-            // ArrayList of class ItemsViewModel
+        
+        // ArrayList of class ItemsViewModel
+        onCreate(savedInstanceState)
         if(!this::data.isInitialized) {
-            if(savedInstanceState?.getSerializable("Data_Array_List") != null){
-                Log.d("issue6", "1")
-                data =
-                    savedInstanceState?.getSerializable("Data_Array_List") as ArrayList<ItemsViewModel>
-            } else {
-                Log.d("issue6", "2")
-                data = ArrayList<ItemsViewModel>()
-            }
-
+            Log.d("issue6", "3")
+            data = ArrayList<ItemsViewModel>()
         }
 
         binding.BackHistoryButton.setOnClickListener {
@@ -83,15 +93,22 @@ class HistoryFragment : Fragment() {
         // Setting the Adapter with the recyclerview
         recyclerview.adapter = adapter
 
-        savedInstanceState?.putSerializable("Data_Array_List", data)
         val type = ArrayList<ItemsViewModel>().javaClass
+
+        savedInstanceState?.getSerializable("Data_Array_List")
+
+        if (savedInstanceState != null) {
+            onSaveInstanceState(savedInstanceState)
+        }
 
         return root
     }
+
     fun changeNetWorth(valueChanged: Int) {
         netWorthCalculated += valueChanged
         Log.d("test9", netWorthCalculated.toString())
         setFragmentResult("requestKey2", bundleOf("bundleKey2" to netWorthCalculated))
+        setFragmentResult("requestKey3", bundleOf("bundleKey3" to netWorthCalculated))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

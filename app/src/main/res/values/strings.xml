@@ -15,8 +15,22 @@
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
+    <string name="welcome">Welcome !</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <string name="tipBase">- %1$s \n - %2$s \n - %3$s \n - %4$s \n - %5$s</string>
+
+    <string name="tip1">You have surplus money and can invest it in real estate</string>
+    <string name="tip2">You have surplus money and can invest it in stocks and bonds</string>
+    <string name="tip3">You should try to save more money</string>
+    <string name="tip4">You should try to cut expenses and increase income</string>
+    <string name="tip5">You should try to file for Chapter 7 Bankruptcy</string>
+
+    <string name="tip6">A savings account has a high annual percentage yield (APY) but have many withdrawal restrictions</string>
+    <string name="tip7">Stocks are high risk and high reward investments</string>
+    <string name="tip8">You can invest in real estate through real estate investment trusts (REITS) which are more affordable</string>
+    <string name="tip9">Remember to pay off your credit card balance every month </string>
+
 </resources>
