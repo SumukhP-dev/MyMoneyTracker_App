@@ -100,10 +100,10 @@ class HistoryFragment : Fragment() {
             findNavController().navigate(R.id.action_historyFragment_to_nav_home)
         }
 
-        // getting the recyclerview by its id
+        // Getting the recyclerview by its id
         val recyclerview = binding.recyclerview
 
-        // this creates a vertical layout Manager
+        // This creates a vertical layout Manager
         recyclerview.layoutManager = LinearLayoutManager(context)
 
         data.add(ItemsViewModel("Date", "Money", "Description"))

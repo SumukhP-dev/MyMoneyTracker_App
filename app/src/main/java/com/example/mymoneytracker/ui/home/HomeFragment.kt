@@ -1,10 +1,13 @@
 package com.example.mymoneytracker.ui.home
 
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
@@ -12,11 +15,15 @@ import androidx.navigation.fragment.findNavController
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHomeBinding
 import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
-import com.github.mikephil.charting.utils.ColorTemplate
+import java.time.LocalDate
+import java.util.TreeMap
 import kotlin.properties.Delegates
 
 
@@ -28,6 +35,11 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    // Test data to configure chart
+    private val testDates = arrayOf<String>("12/01/2007", "12/02/2007", "12/01/2008")
+    private val testAmounts = arrayOf<Int>(100, -60, -60)
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -66,59 +78,99 @@ class HomeFragment : Fragment() {
 
         val chart = binding.chart as BarChart
 
-        val data = BarData(getDataSet())
-        chart.data = data
-        chart.description.text = "My Chart";
-        chart.animateXY(2000, 2000)
-        chart.invalidate()
+        val netWorthArray = getNetWorthArray(testAmounts)
+        val dateArray = getArrayofDateObjects(testDates)
+
+        var treeMap = TreeMap<LocalDate, Int>()
+        for (i in netWorthArray.indices) {
+            treeMap.put(dateArray[i], netWorthArray[i])
+        }
+        Log.d("treeMap", treeMap.toString())
+
+        barChart(treeMap)
 
         return root
     }
 
-    private fun getDataSet(): BarDataSet {
-        val valueSet1 = ArrayList<BarEntry>()
-        val v1e1 = BarEntry(110.000f, 0f) // Jan
-        valueSet1.add(v1e1)
-        val v1e2 = BarEntry(40.000f, 1f) // Feb
-        valueSet1.add(v1e2)
-        val v1e3 = BarEntry(60.000f, 2f) // Mar
-        valueSet1.add(v1e3)
-        val v1e4 = BarEntry(30.000f, 3f) // Apr
-        valueSet1.add(v1e4)
-        val v1e5 = BarEntry(90.000f, 4f) // May
-        valueSet1.add(v1e5)
-        val v1e6 = BarEntry(100.000f, 5f) // Jun
-        valueSet1.add(v1e6)
-        val valueSet2 = ArrayList<BarEntry>()
-        val v2e1 = BarEntry(150.000f, 0f) // Jan
-        valueSet2.add(v2e1)
-        val v2e2 = BarEntry(90.000f, 1f) // Feb
-        valueSet2.add(v2e2)
-        val v2e3 = BarEntry(120.000f, 2f) // Mar
-        valueSet2.add(v2e3)
-        val v2e4 = BarEntry(60.000f, 3f) // Apr
-        valueSet2.add(v2e4)
-        val v2e5 = BarEntry(20.000f, 4f) // May
-        valueSet2.add(v2e5)
-        val v2e6 = BarEntry(80.000f, 5f) // Jun
-        valueSet2.add(v2e6)
-        val barDataSet1 = BarDataSet(valueSet1, "Brand 1")
-        barDataSet1.color = Color.rgb(0, 155, 0)
-        val barDataSet2 = BarDataSet(valueSet2, "Brand 2")
-        barDataSet2.setColors(*ColorTemplate.COLORFUL_COLORS)
-        var dataSets: BarDataSet = BarDataSet(valueSet1, "Data")
-        return dataSets
+    // This function creates a bar chart to show net worth over a period of time
+    fun barChart(treeMapToAdd: TreeMap<LocalDate, Int>) {
+        var mChart: BarChart = binding.chart
+        mChart.setDrawBarShadow(false)
+        mChart.getDescription().setEnabled(false)
+        mChart.setPinchZoom(false)
+        mChart.setDrawGridBackground(true)
+
+        var labels = emptyArray<String>()
+        treeMapToAdd.navigableKeySet().forEach {label ->
+            labels += label.toString()
+        }
+        labels += ""
+
+        // The xAxis variable defines the x-axis values of the chart
+        val xAxis: XAxis = mChart.getXAxis()
+        xAxis.position = XAxis.XAxisPosition.BOTTOM
+        xAxis.setDrawGridLines(true)
+        xAxis.granularity = 1f
+        xAxis.textColor = Color.BLACK
+        xAxis.textSize = 12f
+        xAxis.axisLineColor = Color.WHITE
+        xAxis.valueFormatter = IndexAxisValueFormatter(labels)
+
+        // The leftAxis variable defines the y-axis values of the chart
+        val leftAxis: YAxis = mChart.getAxisLeft()
+        leftAxis.textColor = Color.BLACK
+        leftAxis.textSize = 12f
+        leftAxis.axisLineColor = Color.WHITE
+        leftAxis.setDrawGridLines(true)
+        leftAxis.granularity = 2f
+        leftAxis.setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART)
+        mChart.getAxisRight().setEnabled(false)
+        mChart.getLegend().setEnabled(false)
+        val valOne = treeMapToAdd.values.toList()
+        var barOne = mutableListOf<BarEntry>()
+        val dataSets = ArrayList<IBarDataSet>()
+        for (i in valOne.indices) {
+            barOne += (BarEntry(i.toFloat(), valOne[i].toFloat()))
+            val set = BarDataSet(barOne.toMutableList(), "barOne")
+
+            // This if check determines if the bar should be green or red
+            if (valOne[i].toFloat() >= 0) {
+                set.color = Color.GREEN
+            } else {
+                set.color = Color.RED
+            }
+            set.isHighlightEnabled = false
+            set.setDrawValues(false)
+            dataSets.add(set)
+            barOne = mutableListOf<BarEntry>()
+        }
+        val data = BarData(dataSets)
+        val barWidth = 0.3f
+        data.barWidth = barWidth
+        xAxis.axisMaximum = labels.size - 1.1f
+        mChart.setData(data)
+        mChart.setScaleEnabled(false)
+        mChart.invalidate()
     }
 
-    private fun getXAxisValues(): ArrayList<String> {
-        val xAxis = ArrayList<String>()
-        xAxis.add("JAN")
-        xAxis.add("FEB")
-        xAxis.add("MAR")
-        xAxis.add("APR")
-        xAxis.add("MAY")
-        xAxis.add("JUN")
-        return xAxis
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun getArrayofDateObjects(dateArray: Array<String>): Array<LocalDate> {
+        var arrayDateObjects = arrayOf<LocalDate>()
+        for(j in dateArray.indices) {
+            arrayDateObjects += LocalDate.of(dateArray[j].substring(6,10).toInt(), dateArray[j].substring(0,2).toInt(), dateArray[j].substring(3,5).toInt())
+        }
+        return arrayDateObjects
+    }
+
+    // This function converts the user's transaction history to their net worth history
+    fun getNetWorthArray(amountArray: Array<Int>): IntArray {
+        var netWorthArray = intArrayOf()
+        var currentNetWorth = 0
+        for(x in amountArray.indices) {
+            currentNetWorth += amountArray[x]
+            netWorthArray += currentNetWorth
+        }
+        return netWorthArray
     }
 
     override fun onDestroyView() {
