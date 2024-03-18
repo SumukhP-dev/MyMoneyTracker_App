@@ -43,8 +43,8 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        // Set to false to not test login page
-        if (false) {
+        // Set to true to test login page
+        if (true) {
             // show Welcome Screen
             startActivity(Intent(this, LoginActivity::class.java))
         }
@@ -77,7 +77,4 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
-
-
 }

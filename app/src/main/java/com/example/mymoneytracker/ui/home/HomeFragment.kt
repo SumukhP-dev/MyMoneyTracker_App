@@ -85,7 +85,6 @@ class HomeFragment : Fragment() {
         for (i in netWorthArray.indices) {
             treeMap.put(dateArray[i], netWorthArray[i])
         }
-        Log.d("treeMap", treeMap.toString())
 
         barChart(treeMap)
 
