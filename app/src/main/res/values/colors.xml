@@ -8,4 +8,16 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#757575</color>
+
+    <color name="color_one">#fb7268</color>
+    <color name="color_white">#ededf2</color>
+    <color name="color_two">#E3E0E0</color>
+
+    <color name="Rent_Mortgage">#FFA726</color>
+    <color name="Utilities">#66BB6A</color>
+    <color name="StudentLoans">#EF5350</color>
+    <color name="Carpayments">#29B6F6</color>
+    <color name="Food">#673AB7</color>
+    <color name="Fun">#009688</color>
+    <color name="Miscellaneous">#3F51B5</color>
 </resources>

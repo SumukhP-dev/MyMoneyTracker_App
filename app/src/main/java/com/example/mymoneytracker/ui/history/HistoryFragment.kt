@@ -18,6 +18,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHistoryBinding
+import com.google.common.primitives.Ints
 
 
 class HistoryFragment : Fragment() {
@@ -29,6 +30,8 @@ class HistoryFragment : Fragment() {
     private lateinit var viewModel: HistoryViewModel
     private lateinit var inputData: Array<String>
     private lateinit var data: ArrayList<ItemsViewModel>
+    private lateinit var dataForPieChart: Array<Int>
+
 
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
@@ -96,6 +99,10 @@ class HistoryFragment : Fragment() {
             data = ArrayList<ItemsViewModel>()
         }
 
+        if(!this::dataForPieChart.isInitialized) {
+            dataForPieChart = arrayOf(0, 0, 0, 0, 0, 0, 0)
+        }
+
         binding.BackHistoryButton.setOnClickListener {
             findNavController().navigate(R.id.action_historyFragment_to_nav_home)
         }
@@ -115,6 +122,7 @@ class HistoryFragment : Fragment() {
             newDataList = newDataList.plus(inputData)
             addToArrayListItemsViewModel(newDataList)
             changeNetWorth(newDataList[1].toInt())
+            sendDataToPieChart(newDataList)
         }
 
         // This will pass the ArrayList to our Adapter
@@ -160,6 +168,19 @@ class HistoryFragment : Fragment() {
 
     fun addToArrayListItemsViewModel (newDataList: Array<String>) {
         data.add(ItemsViewModel(newDataList[0], "$" + newDataList[1], newDataList[2]))
+    }
+
+    fun sendDataToPieChart(newDataList: Array<String>) {
+        when (newDataList[3]) {
+            "Rent/Mortgage" -> { dataForPieChart[0] += newDataList[1].toInt() }
+            "Utilities" -> { dataForPieChart[1] += newDataList[1].toInt() }
+            "Student Loans" -> { dataForPieChart[2] += newDataList[1].toInt() }
+            "Car payments" -> { dataForPieChart[3] += newDataList[1].toInt() }
+            "Food" -> { dataForPieChart[4] += newDataList[1].toInt() }
+            "Fun" -> { dataForPieChart[5] += newDataList[1].toInt() }
+            "Miscellaneous" -> { dataForPieChart[6] += newDataList[1].toInt() }
+        }
+        setFragmentResult("requestKey4", bundleOf("bundleKey4" to dataForPieChart))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

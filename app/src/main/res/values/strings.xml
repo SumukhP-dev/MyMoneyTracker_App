@@ -40,7 +40,7 @@
     <string-array name="types">
         <item>Rent/Mortgage</item>
         <item>Utilities</item>
-        <item>Student Loan Interest</item>
+        <item>Student Loans</item>
         <item>Car payments</item>
         <item>Food</item>
         <item>Fun</item>

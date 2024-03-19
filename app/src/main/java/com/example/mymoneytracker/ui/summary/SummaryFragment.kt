@@ -1,26 +1,21 @@
 package com.example.mymoneytracker.ui.summary
 
 import android.content.res.ColorStateList
-import android.graphics.BlendMode
-import android.graphics.BlendModeColorFilter
 import android.graphics.Color
-import android.graphics.ColorFilter
-import android.graphics.PorterDuff
-import android.os.Build
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.mymoneytracker.R
-import com.example.mymoneytracker.databinding.FragmentHistoryBinding
 import com.example.mymoneytracker.databinding.FragmentSummaryBinding
+import org.eazegraph.lib.models.PieModel
 import kotlin.properties.Delegates
+
 
 class SummaryFragment : Fragment() {
 
@@ -28,10 +23,13 @@ class SummaryFragment : Fragment() {
         fun newInstance() = SummaryFragment()
     }
 
-    private var netWorth by Delegates.notNull<Int>()
     private lateinit var viewModel: SummaryViewModel
+    private lateinit var dataForPieChart: Array<Int>
+
     private var _binding: FragmentSummaryBinding? = null
     private val binding get() = _binding!!
+    private var netWorth by Delegates.notNull<Int>()
+    private var checkIfPieChartEmpty = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +46,15 @@ class SummaryFragment : Fragment() {
             netWorth = bundle.getInt("bundleKey3")
             displayTips(netWorth)
             setProgress(netWorth)
+        }
+
+        setFragmentResultListener("requestKey4") { requestKey, bundle ->
+            dataForPieChart = bundle.getSerializable("bundleKey4") as Array<Int>
+            setPieChart(dataForPieChart)
+            checkIfPieChartEmpty = false
+        }
+        if (checkIfPieChartEmpty) {
+            setPieChartDefault()
         }
 
         binding.progressBar.max = 100
@@ -115,6 +122,60 @@ class SummaryFragment : Fragment() {
         } else {
             return 20
         }
+    }
+
+    fun setPieChartDefault(){
+        binding.pieChart.addPieSlice(
+            PieModel(
+                100F, Color.parseColor("#A9A9A9")
+            )
+        )
+    }
+
+    fun setPieChart(dataForPieChart: Array<Int>) {
+        // Set the data and color to the pie chart
+        binding.pieChart.addPieSlice(
+            PieModel(
+                "Rent/Mortgage", dataForPieChart[0].toFloat(),
+                Color.parseColor("#FFA726")
+            )
+        )
+        binding.pieChart.addPieSlice(
+            PieModel(
+                "Utilities", dataForPieChart[1].toFloat(),
+                Color.parseColor("#66BB6A")
+            )
+        )
+        binding.pieChart.addPieSlice(
+            PieModel(
+                "Student Loans", dataForPieChart[2].toFloat(),
+                Color.parseColor("#EF5350")
+            )
+        )
+        binding.pieChart.addPieSlice(
+            PieModel(
+                "Car payments", dataForPieChart[3].toFloat(),
+                Color.parseColor("#29B6F6")
+            )
+        )
+        binding.pieChart.addPieSlice(
+            PieModel(
+                "Food", dataForPieChart[4].toFloat(),
+                Color.parseColor("#673AB7")
+            )
+        )
+        binding.pieChart.addPieSlice(
+            PieModel(
+                "Fun", dataForPieChart[5].toFloat(),
+                Color.parseColor("#009688")
+            )
+        )
+        binding.pieChart.addPieSlice(
+            PieModel(
+                "Miscellaneous", dataForPieChart[6].toFloat(),
+                Color.parseColor("#3F51B5")
+            )
+        )
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

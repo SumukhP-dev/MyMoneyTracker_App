@@ -40,7 +40,10 @@ class AddDataFragment : Fragment() {
         binding.addTransactionButton.setOnClickListener {
             findNavController().navigate(R.id.action_addDataFragment_to_historyFragment)
 
-            var dataList = arrayOf(binding.dateText.text.toString(), binding.moneyText.text.toString(), binding.descriptionText.text.toString())
+            var dataList = arrayOf(binding.dateText.text.toString(),
+                binding.moneyText.text.toString(),
+                binding.descriptionText.text.toString(),
+                binding.typeDropdown.selectedItem.toString())
 
             setFragmentResult("requestKey", bundleOf("bundleKey" to dataList))
 
