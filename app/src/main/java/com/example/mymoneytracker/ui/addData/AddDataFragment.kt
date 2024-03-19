@@ -6,17 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import androidx.core.app.NavUtils
+import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
-import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentAddDataBinding
-import com.example.mymoneytracker.ui.history.ItemsViewModel
-
 
 class AddDataFragment : Fragment() {
 
@@ -49,6 +46,16 @@ class AddDataFragment : Fragment() {
 
             hideKeyboard()
         }
+
+        val adapter = this.context?.let {
+            ArrayAdapter.createFromResource(
+                it,
+                R.array.types,
+                android.R.layout.simple_spinner_item
+            )
+        }
+        adapter?.setDropDownViewResource(android.R.layout.simple_spinner_item)
+        binding.typeDropdown.adapter = adapter
 
         return root
     }
