@@ -57,7 +57,15 @@ open class LoginActivity : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
+        var currentUser = auth.currentUser
+
+        var checkIfSignedOut = intent.getBooleanExtra("checkIfSignedOut", false)
+
+        if (checkIfSignedOut) {
+            FirebaseAuth.getInstance().signOut()
+            currentUser = null
+        }
+
         if (currentUser != null) {
             goToHomeFragment()
         }

@@ -43,22 +43,6 @@ class HistoryFragment : Fragment() {
         Log.d(TAG, "onCreate() called with: savedInstanceState = $savedInstanceState")
     }
 
-    /*
-    @Override
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val string = savedInstanceState?.getString("string_value")
-        val aBoolean = savedInstanceState?.getBoolean("boolean_value")
-        val anInt = savedInstanceState?.getInt("int_value")
-
-        Log.d(string, "string1")
-        Log.d(aBoolean.toString(), "string2")
-        Log.d(anInt.toString(), "string3")
-    }
-
-     */
-
     override fun onStart() {
         super.onStart()
         Log.d(TAG, "onStart() called")
@@ -133,8 +117,6 @@ class HistoryFragment : Fragment() {
 
         val type = ArrayList<ItemsViewModel>().javaClass
 
-        onPause()
-
         return root
     }
 
@@ -142,23 +124,6 @@ class HistoryFragment : Fragment() {
         super.onSaveInstanceState(bundle)
         Log.d(TAG, "onSaveInstanceState() called with: bundle = $bundle")
     }
-
-    /*
-    @Override
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        // put string value
-        val string = "string1"
-        outState.putString("string_value", string)
-        // put boolean value
-        val aBoolean = false
-        outState.putBoolean("boolean_value", aBoolean)
-        // Put int value
-        val anInt = 7
-        outState.putInt("int_value", anInt)
-    }
-
-     */
 
     fun changeNetWorth(valueChanged: Int) {
         netWorthCalculated += valueChanged

@@ -2,7 +2,9 @@ package com.example.mymoneytracker
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -11,10 +13,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.mymoneytracker.databinding.ActivityMainBinding
-import com.example.mymoneytracker.ui.history.HistoryFragment
 import com.example.mymoneytracker.ui.login.LoginActivity
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 
 
 class MainActivity : AppCompatActivity() {
@@ -71,6 +71,23 @@ class MainActivity : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_settings -> {
+                return true
+            }
+
+            R.id.action_logout -> {
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.putExtra("checkIfSignedOut", true)
+                startActivity(intent)
+                return true
+            }
+
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

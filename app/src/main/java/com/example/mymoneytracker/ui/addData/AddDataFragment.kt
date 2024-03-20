@@ -72,7 +72,5 @@ class AddDataFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(AddDataViewModel::class.java)
-        // TODO: Use the ViewModel
     }
-
 }
