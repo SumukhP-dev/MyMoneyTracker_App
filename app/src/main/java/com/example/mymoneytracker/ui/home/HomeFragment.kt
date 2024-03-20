@@ -73,6 +73,7 @@ class HomeFragment : Fragment() {
         setFragmentResultListener("requestKey2") { requestKey, bundle ->
             netWorth = bundle.getInt("bundleKey2")
             binding.NetWorthAmount.text = netWorth.toString()
+            Log.d("networth", binding.NetWorthAmount.text.toString())
             netWorthColorChange(netWorth)
         }
 

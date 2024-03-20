@@ -42,33 +42,44 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Breakdown">
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="323dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:indeterminateBehavior="repeat"
-                android:scaleY="8"
-                app:layout_constraintBottom_toTopOf="@+id/progressBarTextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.903" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/progressBarTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="60dp"
-                android:text="Your Financial Health"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/cardViewGraph"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="323dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="27dp"
+                    android:layout_marginEnd="29dp"
+                    android:layout_marginBottom="72dp"
+                    android:indeterminateBehavior="repeat"
+                    android:scaleY="8" />
+
+                <TextView
+                    android:id="@+id/progressBarTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="91dp"
+                    android:layout_marginTop="67dp"
+                    android:layout_marginEnd="108dp"
+                    android:layout_marginBottom="29dp"
+                    android:text="Your Financial Health"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -85,10 +96,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.45">
 
-
             <!--Linear layout to display pie chart -->
             <!-- and details of pie chart-->
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -96,7 +105,6 @@
                 android:weightSum="2">
 
                 <!--Pie chart to display the data-->
-
                 <org.eazegraph.lib.charts.PieChart xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/pieChart"
                     android:layout_width="0dp"
@@ -285,31 +293,43 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardViewGraph"
             app:layout_constraintVertical_bias="0.26999998">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tipsText"
-                android:layout_width="354dp"
-                android:layout_height="320dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="70dp"
-                android:textColor="#000000"
-                android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/Tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="157dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="190dp"
+                    android:layout_marginBottom="362dp"
+                    android:text="Tips"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/Tips"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="20dp"
-                android:text="Tips"
-                android:textColor="#000000"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toTopOf="@+id/BackSummaryButton"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Breakdown"
-                app:layout_constraintVertical_bias="0.548" />
+                <TextView
+                    android:id="@+id/tipsText"
+                    android:layout_width="354dp"
+                    android:layout_height="320dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="74dp"
+                    android:layout_marginEnd="21dp"
+                    android:layout_marginBottom="20dp"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
         </androidx.cardview.widget.CardView>
 
         <Button

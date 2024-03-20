@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:minHeight="750dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,32 +62,49 @@
             app:layout_constraintTop_toBottomOf="@+id/Dashboard"
             app:layout_constraintVertical_bias="0.026">
 
-            <TextView
-                android:id="@+id/NetWorth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="140dp"
-                android:layout_marginTop="10dp"
-                android:text="Net Worth"
-                android:textColor="#000000"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Dashboard" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/NetWorthAmount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="160dp"
-                android:layout_marginTop="50dp"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintTop_toBottomOf="@+id/NetWorth"
-                app:layout_constraintVertical_bias="0.041" />
+                <TextView
+                    android:id="@+id/NetWorth"
+                    android:layout_width="112dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="129dp"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginEnd="138dp"
+                    android:layout_marginBottom="54dp"
+                    android:text="Net Worth"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/NetWorthAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="88dp"
+                    android:layout_marginTop="49dp"
+                    android:layout_marginEnd="97dp"
+                    android:layout_marginBottom="14dp"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintTop_toBottomOf="@+id/NetWorth"
+                    app:layout_constraintVertical_bias="0.041" />
+
+            </RelativeLayout>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView

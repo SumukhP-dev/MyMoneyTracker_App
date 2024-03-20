@@ -53,9 +53,7 @@ class SummaryFragment : Fragment() {
             setPieChart(dataForPieChart)
             checkIfPieChartEmpty = false
         }
-        if (checkIfPieChartEmpty) {
-            setPieChartDefault()
-        }
+        setPieChartDefault(checkIfPieChartEmpty)
 
         binding.progressBar.max = 100
         binding.progressBar.progressTintList = ColorStateList.valueOf(Color.GREEN);
@@ -124,10 +122,10 @@ class SummaryFragment : Fragment() {
         }
     }
 
-    fun setPieChartDefault(){
+    fun setPieChartDefault(checkIfPieChartEmpty: Boolean){
         binding.pieChart.addPieSlice(
             PieModel(
-                100F, Color.parseColor("#A9A9A9")
+                0F, Color.parseColor("#A9A9A9")
             )
         )
     }
