@@ -8,12 +8,15 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.mymoneytracker.databinding.ActivityMainBinding
+import com.example.mymoneytracker.ui.home.HomeFragment
 import com.example.mymoneytracker.ui.login.LoginActivity
+import com.example.mymoneytracker.ui.settings.SettingsFragment
 import com.google.android.material.navigation.NavigationView
 
 

@@ -31,7 +31,7 @@ class AddDataFragment : Fragment() {
         _binding = FragmentAddDataBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.BackXButton.setOnClickListener {
+        binding.backXButton.setOnClickListener {
             findNavController().navigate(R.id.action_addDataFragment_to_historyFragment)
 
             hideKeyboard()

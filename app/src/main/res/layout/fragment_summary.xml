@@ -2,13 +2,14 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nestedScrollView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="1000dp"
     tools:context=".ui.summary.SummaryFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/frameLayout3"
+        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="1000dp"
@@ -38,7 +39,7 @@
                 <!-- to display pie chart details -->
 
                 <TextView
-                    android:id="@+id/Breakdown"
+                    android:id="@+id/breakdown"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -309,7 +310,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/Tips"
+                    android:id="@+id/tips"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -344,7 +345,7 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/BackSummaryButton"
+            android:id="@+id/backSummaryButton"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:text="Back"

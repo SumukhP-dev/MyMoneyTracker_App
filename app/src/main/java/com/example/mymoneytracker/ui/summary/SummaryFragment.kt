@@ -38,7 +38,7 @@ class SummaryFragment : Fragment() {
         _binding = FragmentSummaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.BackSummaryButton.setOnClickListener {
+        binding.backSummaryButton.setOnClickListener {
             findNavController().navigate(R.id.action_summaryFragment_to_nav_home)
         }
 

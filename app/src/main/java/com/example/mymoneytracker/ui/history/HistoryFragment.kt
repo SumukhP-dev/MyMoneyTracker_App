@@ -87,12 +87,12 @@ class HistoryFragment : Fragment() {
             dataForPieChart = arrayOf(0, 0, 0, 0, 0, 0, 0)
         }
 
-        binding.BackHistoryButton.setOnClickListener {
+        binding.backHistoryButton.setOnClickListener {
             findNavController().navigate(R.id.action_historyFragment_to_nav_home)
         }
 
         // Getting the recyclerview by its id
-        val recyclerview = binding.recyclerview
+        val recyclerview = binding.recyclerView
 
         // This creates a vertical layout Manager
         recyclerview.layoutManager = LinearLayoutManager(context)

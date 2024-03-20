@@ -45,35 +45,34 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.HistoryButton.setOnClickListener {
+        binding.historyButton.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_historyFragment)
         }
 
-        binding.SummaryButton.setOnClickListener {
+        binding.summaryButton.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_summaryFragment)
         }
 
         fun netWorthColorChange(netWorth: Int) {
             if (netWorth >= 0) {
-                binding.NetWorthAmount.setTextColor(Color.parseColor("#00FF0A"))
-                binding.NetWorthAmount.text = "$" + netWorth.toString()
+                binding.netWorthAmount.setTextColor(Color.parseColor("#00FF0A"))
+                binding.netWorthAmount.text = "$" + netWorth.toString()
             } else {
-                binding.NetWorthAmount.setTextColor(Color.parseColor("#FF1100"))
-                binding.NetWorthAmount.text = "($" + netWorth.toString() + ")"
+                binding.netWorthAmount.setTextColor(Color.parseColor("#FF1100"))
+                binding.netWorthAmount.text = "($" + netWorth.toString() + ")"
             }
         }
 
         setFragmentResultListener("requestKey2") { requestKey, bundle ->
             netWorth = bundle.getInt("bundleKey2")
-            binding.NetWorthAmount.text = netWorth.toString()
-            Log.d("networth", binding.NetWorthAmount.text.toString())
+            binding.netWorthAmount.text = netWorth.toString()
+            Log.d("networth", binding.netWorthAmount.text.toString())
             netWorthColorChange(netWorth)
         }
 
