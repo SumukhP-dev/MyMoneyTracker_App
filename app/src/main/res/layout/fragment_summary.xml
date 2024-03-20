@@ -4,28 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="1100dp"
+    android:minHeight="1000dp"
     tools:context=".ui.summary.SummaryFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="1100dp"
+        android:minHeight="1000dp"
         tools:layout_editor_absoluteY="1dp">
-
-        <TextView
-            android:id="@+id/Breakdown"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Breakdown"
-            android:textColor="#000000"
-            android:textSize="34sp"
-            app:autoSizeMinTextSize="40sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewGraph"
@@ -37,36 +24,64 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.100000024">
+            app:layout_constraintVertical_bias="0.0">
 
             <!--Linear layout to display pie chart -->
             <!-- and details of pie chart-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="332dp"
-                android:orientation="horizontal"
-                android:weightSum="2">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="332dp">
 
                 <!--Pie chart to display the data-->
-                <org.eazegraph.lib.charts.PieChart xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/pieChart"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:layout_weight="1"
-                    android:padding="6dp"
-
-                    />
 
                 <!--Creating another linear layout -->
                 <!-- to display pie chart details -->
+
+                <TextView
+                    android:id="@+id/Breakdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="227dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginEnd="47dp"
+                    android:layout_marginBottom="277dp"
+                    android:text="Breakdown"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:autoSizeMinTextSize="40sp" />
+
+                <org.eazegraph.lib.charts.PieChart
+                    android:id="@+id/pieChart"
+                    android:layout_width="182dp"
+                    android:layout_height="287dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="196dp"
+                    android:layout_marginBottom="30dp"
+                    android:padding="6dp" />
+
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
+                    android:id="@+id/linearLayout"
+                    android:layout_width="158dp"
+                    android:layout_height="213dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginTop="67dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="52dp"
                     android:gravity="center_vertical"
                     android:orientation="vertical">
 
@@ -221,7 +236,7 @@
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
@@ -235,7 +250,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardViewGraph"
-            app:layout_constraintVertical_bias="0.44">
+            app:layout_constraintVertical_bias="0.51">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -286,8 +301,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardViewGraph"
-            app:layout_constraintVertical_bias="0.6">
+            app:layout_constraintTop_toTopOf="@+id/cardViewGraph"
+            app:layout_constraintVertical_bias="0.87">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -335,10 +350,9 @@
             android:text="Back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.112"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.984" />
+            app:layout_constraintTop_toBottomOf="@+id/cardViewTips" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
