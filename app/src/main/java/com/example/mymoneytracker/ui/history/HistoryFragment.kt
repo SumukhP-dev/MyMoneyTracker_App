@@ -16,6 +16,7 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHistoryBinding
 import com.google.common.primitives.Ints
@@ -76,6 +77,8 @@ class HistoryFragment : Fragment() {
     ): View? {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        (activity as MainActivity).supportActionBar?.title = "History"
 
         // ArrayList of class ItemsViewModel
         if(!this::data.isInitialized) {

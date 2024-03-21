@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentAddDataBinding
 
@@ -30,6 +31,8 @@ class AddDataFragment : Fragment() {
     ): View? {
         _binding = FragmentAddDataBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        (activity as MainActivity).supportActionBar?.title = ""
 
         binding.backXButton.setOnClickListener {
             findNavController().navigate(R.id.action_addDataFragment_to_historyFragment)

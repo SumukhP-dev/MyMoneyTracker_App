@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentSummaryBinding
 import org.eazegraph.lib.models.PieModel
@@ -37,6 +38,8 @@ class SummaryFragment : Fragment() {
     ): View? {
         _binding = FragmentSummaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        (activity as MainActivity).supportActionBar?.title = "Summary"
 
         binding.backSummaryButton.setOnClickListener {
             findNavController().navigate(R.id.action_summaryFragment_to_nav_home)

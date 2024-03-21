@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHomeBinding
 import com.github.mikephil.charting.charts.BarChart
@@ -50,6 +51,8 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        //(activity as MainActivity).supportActionBar?.title = "Dashboard"
 
         binding.historyButton.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_historyFragment)
