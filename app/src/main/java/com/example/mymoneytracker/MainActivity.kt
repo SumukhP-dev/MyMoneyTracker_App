@@ -2,21 +2,18 @@ package com.example.mymoneytracker
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.mymoneytracker.databinding.ActivityMainBinding
-import com.example.mymoneytracker.ui.home.HomeFragment
 import com.example.mymoneytracker.ui.login.LoginActivity
-import com.example.mymoneytracker.ui.settings.SettingsFragment
+import com.example.mymoneytracker.ui.settings.SettingsActivity
 import com.google.android.material.navigation.NavigationView
 
 
@@ -52,7 +49,8 @@ class MainActivity : AppCompatActivity() {
         // Set to true to test login page
         if (true) {
             // show Welcome Screen
-            startActivity(Intent(this, LoginActivity::class.java))
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
 
     }
@@ -82,6 +80,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_settings -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
                 return true
             }
 
