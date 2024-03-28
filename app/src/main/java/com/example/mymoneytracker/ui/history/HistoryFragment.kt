@@ -1,13 +1,12 @@
 package com.example.mymoneytracker.ui.history
 
-import android.R.string
+import com.example.mymoneytracker.MMTApplication
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -19,8 +18,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHistoryBinding
-import com.google.common.primitives.Ints
-
 
 class HistoryFragment : Fragment() {
 
@@ -30,19 +27,12 @@ class HistoryFragment : Fragment() {
 
     private lateinit var viewModel: HistoryViewModel
     private lateinit var inputData: Array<String>
-    private lateinit var data: ArrayList<ItemsViewModel>
     private lateinit var dataForPieChart: Array<Int>
-
 
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
     private var netWorthCalculated = 0
     private val TAG = "testCalls"
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d(TAG, "onCreate() called with: savedInstanceState = $savedInstanceState")
-    }
 
     override fun onStart() {
         super.onStart()
@@ -78,13 +68,9 @@ class HistoryFragment : Fragment() {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        (activity as MainActivity).supportActionBar?.title = "History"
+        var app = context?.applicationContext as MMTApplication
 
-        // ArrayList of class ItemsViewModel
-        if(!this::data.isInitialized) {
-            Log.d("issue6", "3")
-            data = ArrayList<ItemsViewModel>()
-        }
+        (activity as MainActivity).supportActionBar?.title = "History"
 
         if(!this::dataForPieChart.isInitialized) {
             dataForPieChart = arrayOf(0, 0, 0, 0, 0, 0, 0)
@@ -100,7 +86,9 @@ class HistoryFragment : Fragment() {
         // This creates a vertical layout Manager
         recyclerview.layoutManager = LinearLayoutManager(context)
 
-        data.add(ItemsViewModel("Date", "Money", "Description"))
+        if (app.data.size == 0) {
+            app.data.add(ItemsViewModel("Date", "Money", "Description"))
+        }
 
         setFragmentResultListener("requestKey") { requestKey, bundle ->
             // We use a String here, but any type that can be put in a Bundle is supported.
@@ -113,7 +101,7 @@ class HistoryFragment : Fragment() {
         }
 
         // This will pass the ArrayList to our Adapter
-        val adapter = CustomAdapter(data)
+        val adapter = CustomAdapter(app.data)
 
         // Setting the Adapter with the recyclerview
         recyclerview.adapter = adapter
@@ -123,11 +111,6 @@ class HistoryFragment : Fragment() {
         return root
     }
 
-    override fun onSaveInstanceState(bundle: Bundle) {
-        super.onSaveInstanceState(bundle)
-        Log.d(TAG, "onSaveInstanceState() called with: bundle = $bundle")
-    }
-
     fun changeNetWorth(valueChanged: Int) {
         netWorthCalculated += valueChanged
         setFragmentResult("requestKey2", bundleOf("bundleKey2" to netWorthCalculated))
@@ -135,7 +118,8 @@ class HistoryFragment : Fragment() {
     }
 
     fun addToArrayListItemsViewModel (newDataList: Array<String>) {
-        data.add(ItemsViewModel(newDataList[0], "$" + newDataList[1], newDataList[2]))
+        var app = context?.applicationContext as MMTApplication
+        app.data.add(ItemsViewModel(newDataList[0], "$" + newDataList[1], newDataList[2]))
     }
 
     fun sendDataToPieChart(newDataList: Array<String>) {
