@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.mymoneytracker.MMTApplication
 import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHomeBinding
@@ -29,16 +30,11 @@ import kotlin.properties.Delegates
 
 
 class HomeFragment : Fragment() {
-
-    private var netWorth by Delegates.notNull<Int>()
     private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    // Test data to configure chart
-    private val testDates = arrayOf<String>("12/01/2007", "12/02/2007", "12/01/2008")
-    private val testAmounts = arrayOf<Int>(100, -60, -60)
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -51,6 +47,8 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        var app = context?.applicationContext as MMTApplication
 
         //(activity as MainActivity).supportActionBar?.title = "Dashboard"
 
@@ -72,21 +70,15 @@ class HomeFragment : Fragment() {
             }
         }
 
-        setFragmentResultListener("requestKey2") { requestKey, bundle ->
-            netWorth = bundle.getInt("bundleKey2")
-            binding.netWorthAmount.text = netWorth.toString()
-            Log.d("networth", binding.netWorthAmount.text.toString())
-            netWorthColorChange(netWorth)
-        }
+        binding.netWorthAmount.text = app.netWorthCalculated.toString()
+        netWorthColorChange(app.netWorthCalculated)
 
-        val chart = binding.chart as BarChart
-
-        val netWorthArray = getNetWorthArray(testAmounts)
-        val dateArray = getArrayofDateObjects(testDates)
+        val netWorthArrayList = getNetWorthArray(app.amounts)
+        val dateArrayList = getArrayofDateObjects(app.dates)
 
         var treeMap = TreeMap<LocalDate, Int>()
-        for (i in netWorthArray.indices) {
-            treeMap.put(dateArray[i], netWorthArray[i])
+        for (i in netWorthArrayList.indices) {
+            treeMap.put(dateArrayList[i], netWorthArrayList[i])
         }
 
         barChart(treeMap)
@@ -156,21 +148,21 @@ class HomeFragment : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun getArrayofDateObjects(dateArray: Array<String>): Array<LocalDate> {
-        var arrayDateObjects = arrayOf<LocalDate>()
+    fun getArrayofDateObjects(dateArray: ArrayList<String>): ArrayList<LocalDate> {
+        var arrayDateObjects = ArrayList<LocalDate>()
         for(j in dateArray.indices) {
-            arrayDateObjects += LocalDate.of(dateArray[j].substring(6,10).toInt(), dateArray[j].substring(0,2).toInt(), dateArray[j].substring(3,5).toInt())
+            arrayDateObjects.add(LocalDate.of(dateArray[j].substring(6,10).toInt(), dateArray[j].substring(0,2).toInt(), dateArray[j].substring(3,5).toInt()))
         }
         return arrayDateObjects
     }
 
     // This function converts the user's transaction history to their net worth history
-    fun getNetWorthArray(amountArray: Array<Int>): IntArray {
-        var netWorthArray = intArrayOf()
+    fun getNetWorthArray(amountArray: ArrayList<Int>): ArrayList<Int> {
+        var netWorthArray = ArrayList<Int>()
         var currentNetWorth = 0
         for(x in amountArray.indices) {
             currentNetWorth += amountArray[x]
-            netWorthArray += currentNetWorth
+            netWorthArray.add(currentNetWorth)
         }
         return netWorthArray
     }

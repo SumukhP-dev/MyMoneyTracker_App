@@ -7,4 +7,8 @@ import com.example.mymoneytracker.ui.history.ItemsViewModel
 class MMTApplication: Application() {
     // ArrayList of class ItemsViewModel
     var data = ArrayList<ItemsViewModel>()
+
+    var dates = ArrayList<String>()
+    var amounts = ArrayList<Int>()
+    var netWorthCalculated = 0
 }

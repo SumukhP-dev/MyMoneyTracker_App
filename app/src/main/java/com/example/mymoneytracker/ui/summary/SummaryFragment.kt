@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.mymoneytracker.MMTApplication
 import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentSummaryBinding
@@ -29,7 +30,6 @@ class SummaryFragment : Fragment() {
 
     private var _binding: FragmentSummaryBinding? = null
     private val binding get() = _binding!!
-    private var netWorth by Delegates.notNull<Int>()
     private var checkIfPieChartEmpty = true
 
     override fun onCreateView(
@@ -39,17 +39,16 @@ class SummaryFragment : Fragment() {
         _binding = FragmentSummaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        var app = context?.applicationContext as MMTApplication
+
         (activity as MainActivity).supportActionBar?.title = "Summary"
 
         binding.backSummaryButton.setOnClickListener {
             findNavController().navigate(R.id.action_summaryFragment_to_nav_home)
         }
 
-        setFragmentResultListener("requestKey3") { requestKey, bundle ->
-            netWorth = bundle.getInt("bundleKey3")
-            displayTips(netWorth)
-            setProgress(netWorth)
-        }
+        displayTips(app.netWorthCalculated)
+        setProgress(app.netWorthCalculated)
 
         setFragmentResultListener("requestKey4") { requestKey, bundle ->
             dataForPieChart = bundle.getSerializable("bundleKey4") as Array<Int>

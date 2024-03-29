@@ -31,7 +31,6 @@ class HistoryFragment : Fragment() {
 
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
-    private var netWorthCalculated = 0
     private val TAG = "testCalls"
 
     override fun onStart() {
@@ -95,7 +94,7 @@ class HistoryFragment : Fragment() {
             inputData = bundle.getStringArray("bundleKey")!!
             var newDataList = arrayOf<String>()
             newDataList = newDataList.plus(inputData)
-            addToArrayListItemsViewModel(newDataList)
+            addData(newDataList)
             changeNetWorth(newDataList[1].toInt())
             sendDataToPieChart(newDataList)
         }
@@ -112,14 +111,15 @@ class HistoryFragment : Fragment() {
     }
 
     fun changeNetWorth(valueChanged: Int) {
-        netWorthCalculated += valueChanged
-        setFragmentResult("requestKey2", bundleOf("bundleKey2" to netWorthCalculated))
-        setFragmentResult("requestKey3", bundleOf("bundleKey3" to netWorthCalculated))
+        var app = context?.applicationContext as MMTApplication
+        app.netWorthCalculated += valueChanged
     }
 
-    fun addToArrayListItemsViewModel (newDataList: Array<String>) {
+    fun addData (newDataList: Array<String>) {
         var app = context?.applicationContext as MMTApplication
         app.data.add(ItemsViewModel(newDataList[0], "$" + newDataList[1], newDataList[2]))
+        app.dates.add(newDataList[0])
+        app.amounts.add(newDataList[1].toInt())
     }
 
     fun sendDataToPieChart(newDataList: Array<String>) {
