@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="$0.00"
-        android:inputType="numberDecimal"
+        android:inputType="numberDecimal|numberSigned"
         android:maxLength="9"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"

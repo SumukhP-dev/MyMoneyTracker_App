@@ -117,7 +117,12 @@ class HistoryFragment : Fragment() {
 
     fun addData (newDataList: Array<String>) {
         var app = context?.applicationContext as MMTApplication
-        app.data.add(ItemsViewModel(newDataList[0], "$" + newDataList[1], newDataList[2]))
+        if (newDataList[1].toInt() >= 0) {
+            app.data.add(ItemsViewModel(newDataList[0], "$" + newDataList[1], newDataList[2]))
+        } else {
+            val endIndex = newDataList[1].length - 1
+            app.data.add(ItemsViewModel(newDataList[0], newDataList[1].slice(listOf(0)) + "$" + newDataList[1].slice(1..endIndex), newDataList[2]))
+        }
         app.dates.add(newDataList[0])
         app.amounts.add(newDataList[1].toInt())
     }
