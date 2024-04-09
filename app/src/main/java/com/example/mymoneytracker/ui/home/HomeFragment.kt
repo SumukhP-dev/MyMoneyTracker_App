@@ -3,17 +3,15 @@ package com.example.mymoneytracker.ui.home
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.mymoneytracker.MMTApplication
-import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHomeBinding
 import com.github.mikephil.charting.charts.BarChart
@@ -26,8 +24,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 import java.time.LocalDate
 import java.util.TreeMap
-import kotlin.properties.Delegates
-
+import com.example.mymoneytracker.ui.OnSwipeTouchListener
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -51,6 +48,16 @@ class HomeFragment : Fragment() {
         var app = context?.applicationContext as MMTApplication
 
         //(activity as MainActivity).supportActionBar?.title = "Dashboard"
+
+        // This implements swipe gestures to go to History Fragment and Summary Fragment
+        binding.nestedScrollView2.setOnTouchListener(object: OnSwipeTouchListener(context) {
+            override fun onSwipeRight() {
+                findNavController().navigate(R.id.action_nav_home_to_historyFragment)
+            }
+            override fun onSwipeLeft() {
+                findNavController().navigate(R.id.action_nav_home_to_summaryFragment)
+            }
+        })
 
         binding.historyButton.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_historyFragment)
@@ -76,6 +83,8 @@ class HomeFragment : Fragment() {
         val netWorthArrayList = getNetWorthArray(app.amounts)
         val dateArrayList = getArrayofDateObjects(app.dates)
 
+        // Adds dates and net worth information to tree
+        // map which automatically sorts them
         var treeMap = TreeMap<LocalDate, Int>()
         for (i in netWorthArrayList.indices) {
             treeMap.put(dateArrayList[i], netWorthArrayList[i])

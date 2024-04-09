@@ -15,6 +15,7 @@ import com.example.mymoneytracker.MMTApplication
 import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentSummaryBinding
+import com.example.mymoneytracker.ui.OnSwipeTouchListener
 import org.eazegraph.lib.models.PieModel
 import kotlin.properties.Delegates
 
@@ -40,6 +41,15 @@ class SummaryFragment : Fragment() {
         val root: View = binding.root
 
         var app = context?.applicationContext as MMTApplication
+
+        // This implements swipe gestures to go to Home Fragment
+        binding.nestedScrollView.setOnTouchListener(object: OnSwipeTouchListener(context) {
+            override fun onSwipeRight() {
+                findNavController().navigate(R.id.action_summaryFragment_to_nav_home)
+            }
+            override fun onSwipeLeft() {
+            }
+        })
 
         (activity as MainActivity).supportActionBar?.title = "Summary"
 

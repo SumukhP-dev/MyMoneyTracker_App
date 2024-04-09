@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHistoryBinding
+import com.example.mymoneytracker.ui.OnSwipeTouchListener
 
 class HistoryFragment : Fragment() {
 
@@ -68,6 +69,15 @@ class HistoryFragment : Fragment() {
         val root: View = binding.root
 
         var app = context?.applicationContext as MMTApplication
+
+        // This implements swipe gestures to go to Home Fragment
+        binding.constraintLayout4.setOnTouchListener(object: OnSwipeTouchListener(context) {
+            override fun onSwipeRight() {
+            }
+            override fun onSwipeLeft() {
+                findNavController().navigate(R.id.action_historyFragment_to_nav_home)
+            }
+        })
 
         (activity as MainActivity).supportActionBar?.title = "History"
 
