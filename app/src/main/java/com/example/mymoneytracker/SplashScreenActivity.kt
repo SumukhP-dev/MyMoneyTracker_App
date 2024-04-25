@@ -1,17 +1,16 @@
 package com.example.mymoneytracker
 
 import android.content.Intent
-import android.graphics.Color
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import androidx.annotation.RequiresApi
-import com.example.mymoneytracker.databinding.ActivityMainBinding
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mymoneytracker.databinding.ActivitySplashScreenBinding
+import com.example.mymoneytracker.ui.home.HomeFragment
 import com.example.mymoneytracker.ui.login.LoginActivity
+
 
 class SplashScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashScreenBinding
@@ -19,12 +18,15 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        var app = applicationContext as MMTApplication
+
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_splash_screen)
 
+        val mDelay: Long = 5000
+
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }, 2000)
+                var intent = Intent(this, MainActivity::class.java)
+                startActivity(intent) }, mDelay)
     }
 }

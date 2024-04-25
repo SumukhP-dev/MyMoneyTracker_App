@@ -1,5 +1,6 @@
 package com.example.mymoneytracker.ui.login
 
+import com.example.mymoneytracker.MMTApplication
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,8 @@ import android.os.Handler
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.ActivityLoginBinding
 import com.example.mymoneytracker.databinding.ActivityMainBinding
@@ -59,17 +62,20 @@ open class LoginActivity : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
+
+        var app = applicationContext as MMTApplication
+
         // Check if user is signed in (non-null) and update UI accordingly.
-        var currentUser = auth.currentUser
+        app.currentUser = auth.currentUser
 
         var checkIfSignedOut = intent.getBooleanExtra("checkIfSignedOut", false)
 
         if (checkIfSignedOut) {
             FirebaseAuth.getInstance().signOut()
-            currentUser = null
+            app.currentUser = null
         }
 
-        if (currentUser != null) {
+        if (app.currentUser != null) {
             goToHomeFragment()
         }
     }
