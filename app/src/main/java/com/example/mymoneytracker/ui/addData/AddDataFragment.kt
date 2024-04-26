@@ -46,12 +46,6 @@ class AddDataFragment : Fragment() {
 
         (activity as MainActivity).supportActionBar?.title = ""
 
-        binding.backXButton.setOnClickListener {
-            findNavController().navigate(R.id.action_addDataFragment_to_historyFragment)
-
-            hideKeyboard()
-        }
-
         binding.addTransactionButton.setOnClickListener {
             validateFields = checkAllFields()
             if (validateFields) {
