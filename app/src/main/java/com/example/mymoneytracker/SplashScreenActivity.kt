@@ -23,7 +23,7 @@ class SplashScreenActivity : AppCompatActivity() {
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_splash_screen)
 
-        val mDelay: Long = 5000
+        val mDelay: Long = 1000
 
         Handler(Looper.getMainLooper()).postDelayed({
                 var intent = Intent(this, MainActivity::class.java)
