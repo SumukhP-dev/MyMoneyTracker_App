@@ -49,5 +49,4 @@
     </string-array>
     <string name="title_activity_home_fragment">HomeFragmentActivity</string>
     <string name="log_out">Log Out</string>
-
 </resources>
