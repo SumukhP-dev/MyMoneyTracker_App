@@ -2,7 +2,8 @@
 
 ## About
 This is a mobile app made with Android Studio and with
-the Kotlin programming language.
+the Kotlin programming language to help the user
+track income and expenses.
 
 ## Running the App
 Go into the App folder and then the release folder and
