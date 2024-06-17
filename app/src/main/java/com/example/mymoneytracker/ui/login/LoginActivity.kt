@@ -1,28 +1,20 @@
 package com.example.mymoneytracker.ui.login
 
-import com.example.mymoneytracker.MMTApplication
-import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.core.os.bundleOf
-import androidx.fragment.app.setFragmentResult
+import androidx.lifecycle.ViewModelProvider
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.ActivityLoginBinding
-import com.example.mymoneytracker.databinding.ActivityMainBinding
-import com.example.mymoneytracker.databinding.FragmentHistoryBinding
+import com.example.mymoneytracker.model.User
 import com.example.mymoneytracker.ui.home.HomeFragment
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 open class LoginActivity : AppCompatActivity() {
-
+    private lateinit var viewModel: LoginViewModel
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityLoginBinding
 
@@ -32,6 +24,8 @@ open class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.hide()
+
+        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         // Initialize Firebase Auth
         auth = Firebase.auth
@@ -54,72 +48,42 @@ open class LoginActivity : AppCompatActivity() {
         }
 
         binding.signInButton.setOnClickListener {
-            loginAccount(binding.email.text.toString(), binding.password.text.toString())
+            viewModel.loginAccount(binding.email.text.toString(),
+                binding.password.text.toString(), auth, this)
         }
 
         binding.createAccountButton.setOnClickListener {
-            createAccount(binding.email.text.toString(), binding.password.text.toString())
+            viewModel.createAccount(binding.email.text.toString(),
+                binding.password.text.toString(), auth, this)
+        }
+
+        if (viewModel.transitionToMainActivity.value == true) {
+            goToHomeFragment()
+        } else {
+            Toast.makeText(
+                baseContext,
+                "Authentication failed.",
+                Toast.LENGTH_SHORT,
+            ).show()
         }
     }
 
     public override fun onStart() {
         super.onStart()
 
-        var app = applicationContext as MMTApplication
-
         // Check if user is signed in (non-null) and update UI accordingly.
-        app.currentUser = auth.currentUser
+        User.getInstance().setCurrentUser(auth.currentUser)
 
         var checkIfSignedOut = intent.getBooleanExtra("checkIfSignedOut", false)
 
         if (checkIfSignedOut) {
             FirebaseAuth.getInstance().signOut()
-            app.currentUser = null
+            User.getInstance().setCurrentUser(null)
         }
 
-        if (app.currentUser != null) {
+        if (User.getInstance().getCurrentUser() != null) {
             goToHomeFragment()
         }
-    }
-
-    fun createAccount(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d("auth1", "createUserWithEmail:success")
-                    val user = auth.currentUser
-                    goToHomeFragment()
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w("auth1", "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(
-                        baseContext,
-                        "Authentication failed.",
-                        Toast.LENGTH_SHORT,
-                    ).show()
-                }
-            }
-    }
-
-    fun loginAccount(email: String, password: String) {
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d("auth2", "signInWithEmail:success")
-                    val user = auth.currentUser
-                    goToHomeFragment()
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w("auth2", "signInWithEmail:failure", task.exception)
-                    Toast.makeText(
-                        baseContext,
-                        "Authentication failed.",
-                        Toast.LENGTH_SHORT,
-                    ).show()
-                }
-            }
     }
 
     fun goToHomeFragment() {

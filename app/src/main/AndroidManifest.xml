@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name=".MMTApplication"
+        android:name=".model.User"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -25,11 +25,6 @@
         <activity
             android:name=".ui.settings.SettingsActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.home.HomeFragmentActivity"
-            android:exported="false"
-            android:label="@string/title_activity_home_fragment"
-            android:theme="@style/Theme.MyMoneyTracker" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false"

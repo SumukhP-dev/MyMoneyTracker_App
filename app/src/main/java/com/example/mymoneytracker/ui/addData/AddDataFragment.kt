@@ -5,7 +5,6 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,20 +19,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentAddDataBinding
-import java.text.ParseException
-import java.text.SimpleDateFormat
-import java.util.regex.Pattern
 
 
 class AddDataFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = AddDataFragment()
-    }
-
     private lateinit var viewModel: AddDataViewModel
     private var _binding: FragmentAddDataBinding? = null
     private val binding get() = _binding!!
+
     // one boolean variable to check whether all the text fields
     // are filled by the user, properly or not.
     private var validateFields = true
@@ -48,8 +40,10 @@ class AddDataFragment : Fragment() {
 
         (activity as MainActivity).supportActionBar?.title = ""
 
+        viewModel = ViewModelProvider(this).get(AddDataViewModel::class.java)
+
         binding.addTransactionButton.setOnClickListener {
-            validateFields = checkAllFields()
+            validateFields = setAllFields()
             if (validateFields) {
                 findNavController().navigate(R.id.action_addDataFragment_to_historyFragment)
 
@@ -94,42 +88,20 @@ class AddDataFragment : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun validate(registerDate: String): Boolean {
-        val p: Pattern = Pattern.compile("^(1[0-9]|0[1-9]|3[0-1]|2[1-9])/(0[1-9]|1[0-2])/[0-9]{4}$")
-        val m = p.matcher(registerDate)
-        if (!m.matches()) return false
-        val format = SimpleDateFormat("dd/MM/yyyy")
-        return try {
-            format.parse(registerDate)
-            true
-        } catch (e: ParseException) {
-            false
+    fun setAllFields(): Boolean {
+        if (viewModel.checkAllFields(binding.dateText.text.toString(), binding.moneyText.text.toString())) {
+            if (viewModel.dateTextErrorMessage.value?.isEmpty() == false) {
+                binding.dateText.error = viewModel.dateTextErrorMessage.value
+            } else if (viewModel.moneyTextErrorMessage.value?.isEmpty() == false) {
+                binding.moneyText.error = viewModel.moneyTextErrorMessage.value
+            }
+            return false;
         }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun checkAllFields(): Boolean {
-        var check = true
-        if (binding.dateText.text.isEmpty()) {
-            binding.dateText.error = "The date is empty"
-            check = false
-        } else if (!validate(binding.dateText.text.toString())) {
-            binding.dateText.error = "The date is improperly formatted"
-            check = false
-        } else if (binding.moneyText.text.toString().isEmpty()) {
-            binding.moneyText.error = "The amount is empty"
-            check = false
-        }
-        return check
+        return true;
     }
 
     fun hideKeyboard() {
         val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view?.windowToken ?: return, 0)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(AddDataViewModel::class.java)
     }
 }

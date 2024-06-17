@@ -3,7 +3,6 @@ package com.example.mymoneytracker.ui.summary
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,27 +10,22 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.mymoneytracker.MMTApplication
 import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentSummaryBinding
+import com.example.mymoneytracker.model.User
 import com.example.mymoneytracker.ui.OnSwipeTouchListener
 import org.eazegraph.lib.models.PieModel
-import kotlin.properties.Delegates
 
 
 class SummaryFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = SummaryFragment()
-    }
-
     private lateinit var viewModel: SummaryViewModel
     private lateinit var dataForPieChart: Array<Int>
 
     private var _binding: FragmentSummaryBinding? = null
     private val binding get() = _binding!!
     private var checkIfPieChartEmpty = true
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +34,7 @@ class SummaryFragment : Fragment() {
         _binding = FragmentSummaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        var app = context?.applicationContext as MMTApplication
+        viewModel = ViewModelProvider(this).get(SummaryViewModel::class.java)
 
         // This implements swipe gestures to go to Home Fragment
         binding.nestedScrollView.setOnTouchListener(object: OnSwipeTouchListener(context) {
@@ -57,8 +51,8 @@ class SummaryFragment : Fragment() {
             findNavController().navigate(R.id.action_summaryFragment_to_nav_home)
         }
 
-        displayTips(app.netWorthCalculated)
-        setProgress(app.netWorthCalculated)
+        displayTips(User.getInstance().getNetWorthCalculated())
+        binding.progressBar.progress = viewModel.getProgress(User.getInstance().getNetWorthCalculated())
 
         setFragmentResultListener("requestKey4") { requestKey, bundle ->
             dataForPieChart = bundle.getSerializable("bundleKey4") as Array<Int>
@@ -72,8 +66,6 @@ class SummaryFragment : Fragment() {
 
         return root
     }
-
-    // This function displays tips based on net worth
     private fun displayTips(netWorth: Int) {
         if(netWorth >= 100000) {
             binding.tipsText.text = getString(R.string.tipBase,
@@ -110,27 +102,6 @@ class SummaryFragment : Fragment() {
                 resources.getString(R.string.tip7),
                 resources.getString(R.string.tip8),
                 resources.getString(R.string.tip9))
-        }
-    }
-
-    // This function sets the amount of progress for the progress bar
-    private fun setProgress(netWorth: Int) {
-        binding.progressBar.progress = getProgress(netWorth)
-    }
-
-
-    // This function gets the amount of progress for the progress bar
-    private fun getProgress(netWorth: Int): Int {
-        if(netWorth >= 100000) {
-            return 100
-        } else if (netWorth >= 10000) {
-            return 80
-        } else if (netWorth >= 1000) {
-            return 60
-        } else if (netWorth >= -1000) {
-            return 40
-        } else {
-            return 20
         }
     }
 
@@ -187,11 +158,4 @@ class SummaryFragment : Fragment() {
             )
         )
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SummaryViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }

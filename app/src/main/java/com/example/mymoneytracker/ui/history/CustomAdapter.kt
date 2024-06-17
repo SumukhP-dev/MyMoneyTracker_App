@@ -32,7 +32,6 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adap
         holder.textDesignDate.text = ItemsViewModel.text
         holder.textDesignMoney.text = ItemsViewModel.text2
         holder.textDesignDescription.text = ItemsViewModel.text3
-
     }
 
     // return the number of the items in the list
@@ -45,6 +44,5 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adap
         val textDesignDate: TextView = itemView.findViewById(R.id.textDesignDate)
         val textDesignMoney: TextView = itemView.findViewById(R.id.textDesignMoney)
         val textDesignDescription: TextView = itemView.findViewById(R.id.textDesignDescription)
-
     }
 }
