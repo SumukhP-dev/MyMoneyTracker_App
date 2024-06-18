@@ -44,11 +44,11 @@ class User: Application() {
                 data2.add(data)
         }
 
-        fun addDates(date: String) {
+        fun addDate(date: String) {
                 dates2.add(date)
         }
 
-        fun addAmounts(amount: Int) {
+        fun addAmount(amount: Int) {
                 amounts2.add(amount)
         }
 

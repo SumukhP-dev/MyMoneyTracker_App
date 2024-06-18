@@ -50,8 +50,8 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_nav_home_to_summaryFragment)
         }
 
-        binding.netWorthAmount.text = User.getInstance().getNetWorthCalculated().toString()
-        viewModel.netWorthColorChange(User.getInstance().getNetWorthCalculated())
+        binding.netWorthAmount.text = viewModel.user.getNetWorthCalculated().toString()
+        viewModel.netWorthColorChange(viewModel.user.getNetWorthCalculated())
 
         viewModel.netWorthAmountColor.value?.let { binding.netWorthAmount.setTextColor(it) }
         binding.netWorthAmount.text = viewModel.netWorthAmountText.value

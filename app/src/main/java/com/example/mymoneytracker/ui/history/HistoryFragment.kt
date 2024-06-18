@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHistoryBinding
-import com.example.mymoneytracker.model.User
 import com.example.mymoneytracker.ui.OnSwipeTouchListener
 
 class HistoryFragment : Fragment() {
@@ -83,34 +82,37 @@ class HistoryFragment : Fragment() {
             findNavController().navigate(R.id.action_historyFragment_to_nav_home)
         }
 
+        binding.addFAB.setOnClickListener {
+            findNavController().navigate(R.id.action_historyFragment_to_addDataFragment)
+        }
+
         // Getting the recyclerview by its id
         val recyclerview = binding.recyclerView
 
         // This creates a vertical layout Manager
         recyclerview.layoutManager = LinearLayoutManager(context)
 
-        if (User.getInstance().getData().size == 0) {
-            User.getInstance().getData().add(ItemsViewModel("Date", "Money", "Description"))
+        if (viewModel.user.getData().size == 0) {
+            viewModel.user.getData().add(ItemsViewModel("Date", "Money", "Description"))
         }
 
-        setFragmentResultListener("requestKey") { requestKey, bundle ->
+        setFragmentResultListener("dataListKey") { requestKey, bundle ->
             // We use a String here, but any type that can be put in a Bundle is supported.
-            inputData = bundle.getStringArray("bundleKey")!!
+            inputData = bundle.getStringArray("dataListBundleKey")!!
             var newDataList = arrayOf<String>()
             newDataList = newDataList.plus(inputData)
             viewModel.addData(newDataList)
             viewModel.changeNetWorth(newDataList[1].toInt())
             val dataForPieChart2 = viewModel.sendDataToPieChart(newDataList, dataForPieChart)
-            setFragmentResult("requestKey4", bundleOf("bundleKey4" to dataForPieChart2))
+            setFragmentResult("dataForPieChartKey",
+                bundleOf("dataForPieChartBundleKey" to dataForPieChart2))
         }
 
         // This will pass the ArrayList to our Adapter
-        val adapter = CustomAdapter(User.getInstance().getData())
+        val adapter = CustomAdapter(viewModel.user.getData())
 
         // Setting the Adapter with the recyclerview
         recyclerview.adapter = adapter
-
-        val type = ArrayList<ItemsViewModel>().javaClass
 
         return root
     }

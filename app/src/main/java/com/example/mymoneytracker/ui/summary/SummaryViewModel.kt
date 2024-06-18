@@ -1,24 +1,25 @@
 package com.example.mymoneytracker.ui.summary
 
-import androidx.annotation.StringRes
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.model.User
 
-class SummaryViewModel: ViewModel() {
+class SummaryViewModel : ViewModel() {
+    var user: User = User.getInstance()
     var tipsMessages: MutableLiveData<String> = MutableLiveData("")
 
     // This function displays tips based on net worth
     fun displayTips(netWorth: Int) {
-        if(netWorth >= 100000) {
+        if (netWorth >= 100000) {
             tipsMessages.value = UiText.StringResources(
                 resId = R.string.tipBase,
                 R.string.tip1,
                 R.string.tip6,
                 R.string.tip7,
                 R.string.tip8,
-                R.string.tip9).toString()
+                R.string.tip9
+            ).toString()
         } else if (netWorth >= 10000) {
             tipsMessages.value = UiText.StringResources(
                 resId = R.string.tipBase,
@@ -26,7 +27,8 @@ class SummaryViewModel: ViewModel() {
                 R.string.tip6,
                 R.string.tip7,
                 R.string.tip8,
-                R.string.tip9).toString()
+                R.string.tip9
+            ).toString()
         } else if (netWorth >= 1000) {
             tipsMessages.value = UiText.StringResources(
                 resId = R.string.tipBase,
@@ -34,7 +36,8 @@ class SummaryViewModel: ViewModel() {
                 R.string.tip6,
                 R.string.tip7,
                 R.string.tip8,
-                R.string.tip9).toString()
+                R.string.tip9
+            ).toString()
         } else if (netWorth >= -1000) {
             tipsMessages.value = UiText.StringResources(
                 resId = R.string.tipBase,
@@ -42,7 +45,8 @@ class SummaryViewModel: ViewModel() {
                 R.string.tip6,
                 R.string.tip7,
                 R.string.tip8,
-                R.string.tip9).toString()
+                R.string.tip9
+            ).toString()
         } else {
             tipsMessages.value = UiText.StringResources(
                 resId = R.string.tipBase,
@@ -50,7 +54,8 @@ class SummaryViewModel: ViewModel() {
                 R.string.tip6,
                 R.string.tip7,
                 R.string.tip8,
-                R.string.tip9).toString()
+                R.string.tip9
+            ).toString()
         }
     }
 

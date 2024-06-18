@@ -4,7 +4,6 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.mymoneytracker.model.User
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.regex.Pattern

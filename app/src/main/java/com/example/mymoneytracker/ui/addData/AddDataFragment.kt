@@ -54,7 +54,7 @@ class AddDataFragment : Fragment() {
                     binding.typeDropdown.selectedItem.toString()
                 )
 
-                setFragmentResult("requestKey", bundleOf("bundleKey" to dataList))
+                setFragmentResult("dataListKey", bundleOf("dataListBundleKey" to dataList))
 
                 hideKeyboard()
             }
@@ -89,15 +89,16 @@ class AddDataFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun setAllFields(): Boolean {
-        if (viewModel.checkAllFields(binding.dateText.text.toString(), binding.moneyText.text.toString())) {
+        if (viewModel.checkAllFields(binding.dateText.text.toString(),
+                binding.moneyText.text.toString())) {
             if (viewModel.dateTextErrorMessage.value?.isEmpty() == false) {
                 binding.dateText.error = viewModel.dateTextErrorMessage.value
             } else if (viewModel.moneyTextErrorMessage.value?.isEmpty() == false) {
                 binding.moneyText.error = viewModel.moneyTextErrorMessage.value
             }
-            return false;
+            return false
         }
-        return true;
+        return true
     }
 
     fun hideKeyboard() {

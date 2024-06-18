@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHistoryBinding
 
-class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(private val mList: List<ItemsViewModel>):
+    RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!

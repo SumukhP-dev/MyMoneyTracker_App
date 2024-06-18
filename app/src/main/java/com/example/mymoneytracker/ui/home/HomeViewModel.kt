@@ -18,6 +18,7 @@ import java.time.LocalDate
 import java.util.TreeMap
 
 class HomeViewModel : ViewModel() {
+    var user: User = User.getInstance()
     var netWorthAmountColor: MutableLiveData<Int> = MutableLiveData(0)
     var netWorthAmountText: MutableLiveData<String> = MutableLiveData("")
 
@@ -114,8 +115,8 @@ class HomeViewModel : ViewModel() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun createBarChart(): TreeMap<LocalDate, Int> {
-        val netWorthArrayList = getNetWorthArray(User.getInstance().getAmounts())
-        val dateArrayList = getArrayofDateObjects(User.getInstance().getDates())
+        val netWorthArrayList = getNetWorthArray(user.getAmounts())
+        val dateArrayList = getArrayofDateObjects(user.getDates())
 
         // Adds dates and net worth information to tree
         // map which automatically sorts them

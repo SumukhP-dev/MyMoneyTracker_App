@@ -51,11 +51,11 @@ class SummaryFragment : Fragment() {
             findNavController().navigate(R.id.action_summaryFragment_to_nav_home)
         }
 
-        displayTips(User.getInstance().getNetWorthCalculated())
-        binding.progressBar.progress = viewModel.getProgress(User.getInstance().getNetWorthCalculated())
+        viewModel.displayTips(viewModel.user.getNetWorthCalculated())
+        binding.progressBar.progress = viewModel.getProgress(viewModel.user.getNetWorthCalculated())
 
-        setFragmentResultListener("requestKey4") { requestKey, bundle ->
-            dataForPieChart = bundle.getSerializable("bundleKey4") as Array<Int>
+        setFragmentResultListener("dataForPieChartKey") { requestKey, bundle ->
+            dataForPieChart = bundle.getSerializable("dataForPieChartBundleKey") as Array<Int>
             setPieChart(dataForPieChart)
             checkIfPieChartEmpty = false
         }
