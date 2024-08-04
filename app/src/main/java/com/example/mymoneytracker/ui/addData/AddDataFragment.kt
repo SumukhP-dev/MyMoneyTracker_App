@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,9 +48,16 @@ class AddDataFragment : Fragment() {
             if (validateFields) {
                 findNavController().navigate(R.id.action_addDataFragment_to_historyFragment)
 
+                viewModel.changeAmountEntered(binding.typeDropdown.selectedItem.toString(),
+                    binding.moneyText.text.toString().toDouble())
+                Log.d("Test AmountChanged", binding.moneyText.text.toString())
+                Log.d("Test AmountChanged", viewModel.amountEntered.value.toString())
+
+
+                //binding.moneyText.text.toString()
                 var dataList = arrayOf(
                     binding.dateText.text.toString(),
-                    binding.moneyText.text.toString(),
+                    viewModel.amountEntered.value.toString(),
                     binding.descriptionText.text.toString(),
                     binding.typeDropdown.selectedItem.toString()
                 )
@@ -75,10 +83,12 @@ class AddDataFragment : Fragment() {
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                viewModel.textSizeBefore.value = count
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (binding.dateText.text.length == 2 || binding.dateText.text.length == 5) {
+                if ((viewModel.textSizeBefore.value!! < count)
+                    && (binding.dateText.text.length == 2 || binding.dateText.text.length == 5)) {
                     binding.dateText.setText("${binding.dateText.text}/")
                     binding.dateText.setSelection(binding.dateText.text.length)
                 }

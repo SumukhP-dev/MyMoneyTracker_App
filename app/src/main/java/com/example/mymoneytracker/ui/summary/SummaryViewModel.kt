@@ -1,66 +1,64 @@
 package com.example.mymoneytracker.ui.summary
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.model.User
 
 class SummaryViewModel : ViewModel() {
     var user: User = User.getInstance()
-    var tipsMessages: MutableLiveData<String> = MutableLiveData("")
 
     // This function displays tips based on net worth
-    fun displayTips(netWorth: Int) {
+    fun displayTips(netWorth: Double) {
         if (netWorth >= 100000) {
-            tipsMessages.value = UiText.StringResources(
+            user.setTipsMessages(UiText.StringResources(
                 resId = R.string.tipBase,
                 R.string.tip1,
                 R.string.tip6,
                 R.string.tip7,
                 R.string.tip8,
                 R.string.tip9
-            ).toString()
+            ).toString())
         } else if (netWorth >= 10000) {
-            tipsMessages.value = UiText.StringResources(
+            user.setTipsMessages(UiText.StringResources(
                 resId = R.string.tipBase,
                 R.string.tip2,
                 R.string.tip6,
                 R.string.tip7,
                 R.string.tip8,
                 R.string.tip9
-            ).toString()
+            ).toString())
         } else if (netWorth >= 1000) {
-            tipsMessages.value = UiText.StringResources(
+            user.setTipsMessages(UiText.StringResources(
                 resId = R.string.tipBase,
                 R.string.tip3,
                 R.string.tip6,
                 R.string.tip7,
                 R.string.tip8,
                 R.string.tip9
-            ).toString()
+            ).toString())
         } else if (netWorth >= -1000) {
-            tipsMessages.value = UiText.StringResources(
+            user.setTipsMessages(UiText.StringResources(
                 resId = R.string.tipBase,
                 R.string.tip4,
                 R.string.tip6,
                 R.string.tip7,
                 R.string.tip8,
                 R.string.tip9
-            ).toString()
+            ).toString())
         } else {
-            tipsMessages.value = UiText.StringResources(
+            user.setTipsMessages(UiText.StringResources(
                 resId = R.string.tipBase,
                 R.string.tip5,
                 R.string.tip6,
                 R.string.tip7,
                 R.string.tip8,
                 R.string.tip9
-            ).toString()
+            ).toString())
         }
     }
 
     // This function gets the amount of progress for the progress bar
-    fun getProgress(netWorth: Int): Int {
+    fun getProgress(netWorth: Double): Int {
         return if (netWorth >= 100000) {
             100
         } else if (netWorth >= 10000) {

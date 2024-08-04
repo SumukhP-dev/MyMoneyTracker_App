@@ -2,6 +2,7 @@ package com.example.mymoneytracker.ui.home
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHomeBinding
-import com.example.mymoneytracker.model.User
 import com.example.mymoneytracker.ui.OnSwipeTouchListener
+import java.text.DecimalFormat
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -52,9 +53,10 @@ class HomeFragment : Fragment() {
 
         binding.netWorthAmount.text = viewModel.user.getNetWorthCalculated().toString()
         viewModel.netWorthColorChange(viewModel.user.getNetWorthCalculated())
-
         viewModel.netWorthAmountColor.value?.let { binding.netWorthAmount.setTextColor(it) }
-        binding.netWorthAmount.text = viewModel.netWorthAmountText.value
+
+        binding.netWorthAmount.text = viewModel.netWorthAmountText.value.toString()
+
 
         val treeMap = viewModel.createBarChart()
         viewModel.barChart(treeMap, binding.chart)

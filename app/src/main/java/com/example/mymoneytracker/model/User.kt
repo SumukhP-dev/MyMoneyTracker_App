@@ -4,59 +4,79 @@ import android.app.Application
 import com.example.mymoneytracker.ui.history.ItemsViewModel
 import com.google.firebase.auth.FirebaseUser
 
-class User: Application() {
-        companion object {
-                // ArrayList of class ItemsViewModel
-                var data2 = ArrayList<ItemsViewModel>()
-                var dates2 = ArrayList<String>()
-                var amounts2 = ArrayList<Int>()
-                var netWorthCalculated2 = 0
+class User : Application() {
+    companion object {
+        // ArrayList of class ItemsViewModel
+        var data: ArrayList<ItemsViewModel> = ArrayList<ItemsViewModel>()
+        var dates: ArrayList<String> = ArrayList<String>()
+        var amounts: ArrayList<Double> = ArrayList<Double>()
+        var netWorthCalculated: Double = 0.0
+        var user: User = User.getInstance()
 
-                // Check if user is signed in (non-null) and update UI accordingly.
-                var currentUser2: FirebaseUser? = null
+        // Check if user is signed in (non-null) and update UI accordingly.
+        var currentUser: FirebaseUser? = null
 
-                fun getInstance():User {
-                        return User()
-                }
+        var tipsMessages: String = ""
+        var dataForPieChart: Array<Double> = emptyArray<Double>()
+
+        fun getInstance(): User {
+            return User()
         }
+    }
 
-        fun getData(): ArrayList<ItemsViewModel> {
-                return data2
-        }
+    fun getData(): ArrayList<ItemsViewModel> {
+        return data
+    }
 
-        fun getDates(): ArrayList<String> {
-                return dates2
-        }
+    fun getDates(): ArrayList<String> {
+        return dates
+    }
 
-        fun getAmounts(): ArrayList<Int> {
-                return amounts2
-        }
+    fun getAmounts(): ArrayList<Double> {
+        return amounts
+    }
 
-        fun getNetWorthCalculated(): Int {
-                return netWorthCalculated2
-        }
+    fun getNetWorthCalculated(): Double {
+        return netWorthCalculated
+    }
 
-        fun getCurrentUser(): FirebaseUser? {
-                return currentUser2
-        }
+    fun getCurrentUser(): FirebaseUser? {
+        return currentUser
+    }
 
-        fun addData(data: ItemsViewModel) {
-                data2.add(data)
-        }
+    fun getTipsMessages(): String {
+        return tipsMessages
+    }
 
-        fun addDate(date: String) {
-                dates2.add(date)
-        }
+    fun getDataForPieChart(): Array<Double> {
+        return dataForPieChart
+    }
 
-        fun addAmount(amount: Int) {
-                amounts2.add(amount)
-        }
+    fun addData(dataToAdd: ItemsViewModel) {
+        data.add(dataToAdd)
+    }
 
-        fun setNetWorthCalculated(netWorth: Int) {
-                netWorthCalculated2 = netWorth
-        }
+    fun addDate(dateToAdd: String) {
+        dates.add(dateToAdd)
+    }
 
-        fun setCurrentUser(newUser: FirebaseUser?) {
-                currentUser2 = newUser
-        }
+    fun addAmount(amountToAdd: Double) {
+        amounts.add(amountToAdd)
+    }
+
+    fun setNetWorthCalculated(netWorth: Double) {
+        netWorthCalculated = netWorth
+    }
+
+    fun setCurrentUser(newUser: FirebaseUser?) {
+        currentUser = newUser
+    }
+
+    fun setTipsMessages(tips: String) {
+        tipsMessages = tips
+    }
+
+    fun setDataForPieChart(newDataForPieChart: Array<Double>) {
+        dataForPieChart = newDataForPieChart
+    }
 }

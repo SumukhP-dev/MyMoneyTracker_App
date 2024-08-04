@@ -23,7 +23,7 @@ class HomeViewModel : ViewModel() {
     var netWorthAmountText: MutableLiveData<String> = MutableLiveData("")
 
     // This function creates a bar chart to show net worth over a period of time
-    fun barChart(treeMapToAdd: TreeMap<LocalDate, Int>, chart: BarChart) {
+    fun barChart(treeMapToAdd: TreeMap<LocalDate, Double>, chart: BarChart) {
         var mChart: BarChart = chart
         mChart.setDrawBarShadow(false)
         mChart.getDescription().setEnabled(false)
@@ -93,9 +93,9 @@ class HomeViewModel : ViewModel() {
     }
 
     // This function converts the user's transaction history to their net worth history
-    fun getNetWorthArray(amountArray: ArrayList<Int>): ArrayList<Int> {
-        var netWorthArray = ArrayList<Int>()
-        var currentNetWorth = 0
+    fun getNetWorthArray(amountArray: ArrayList<Double>): ArrayList<Double> {
+        var netWorthArray = ArrayList<Double>()
+        var currentNetWorth = 0.00
         for(x in amountArray.indices) {
             currentNetWorth += amountArray[x]
             netWorthArray.add(currentNetWorth)
@@ -103,24 +103,25 @@ class HomeViewModel : ViewModel() {
         return netWorthArray
     }
 
-    fun netWorthColorChange(netWorth: Int) {
-        if (netWorth >= 0) {
+    fun netWorthColorChange(netWorth: Double) {
+        val formattedMoneyText = String.format("%.2f", netWorth)
+            if (netWorth >= 0) {
             netWorthAmountColor.value = Color.parseColor("#00FF0A")
-            netWorthAmountText.value = "$$netWorth"
+            netWorthAmountText.value = "$$formattedMoneyText"
         } else {
             netWorthAmountColor.value = Color.parseColor("#FF1100")
-            netWorthAmountText.value = "($$netWorth)"
+            netWorthAmountText.value = "($$formattedMoneyText)"
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun createBarChart(): TreeMap<LocalDate, Int> {
+    fun createBarChart(): TreeMap<LocalDate, Double> {
         val netWorthArrayList = getNetWorthArray(user.getAmounts())
         val dateArrayList = getArrayofDateObjects(user.getDates())
 
         // Adds dates and net worth information to tree
         // map which automatically sorts them
-        var treeMap = TreeMap<LocalDate, Int>()
+        var treeMap = TreeMap<LocalDate, Double>()
         for (i in netWorthArrayList.indices) {
             treeMap.put(dateArrayList[i], netWorthArrayList[i])
         }

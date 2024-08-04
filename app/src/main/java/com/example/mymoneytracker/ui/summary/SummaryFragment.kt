@@ -13,19 +13,15 @@ import androidx.navigation.fragment.findNavController
 import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentSummaryBinding
-import com.example.mymoneytracker.model.User
 import com.example.mymoneytracker.ui.OnSwipeTouchListener
 import org.eazegraph.lib.models.PieModel
 
 
 class SummaryFragment : Fragment() {
     private lateinit var viewModel: SummaryViewModel
-    private lateinit var dataForPieChart: Array<Int>
 
     private var _binding: FragmentSummaryBinding? = null
     private val binding get() = _binding!!
-    private var checkIfPieChartEmpty = true
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,60 +48,26 @@ class SummaryFragment : Fragment() {
         }
 
         viewModel.displayTips(viewModel.user.getNetWorthCalculated())
+        binding.tips.text = viewModel.user.getTipsMessages()
+
         binding.progressBar.progress = viewModel.getProgress(viewModel.user.getNetWorthCalculated())
 
         setFragmentResultListener("dataForPieChartKey") { requestKey, bundle ->
-            dataForPieChart = bundle.getSerializable("dataForPieChartBundleKey") as Array<Int>
-            setPieChart(dataForPieChart)
-            checkIfPieChartEmpty = false
+            val dataForPieChart = bundle.getSerializable("dataForPieChartBundleKey") as Array<Double>
+            viewModel.user.setDataForPieChart(dataForPieChart)
+            setPieChart(viewModel.user.getDataForPieChart())
         }
-        setPieChartDefault(checkIfPieChartEmpty)
+        if (viewModel.user.getDataForPieChart().isEmpty()) {
+            setPieChartDefault()
+        }
 
         binding.progressBar.max = 100
         binding.progressBar.progressTintList = ColorStateList.valueOf(Color.GREEN);
 
         return root
     }
-    private fun displayTips(netWorth: Int) {
-        if(netWorth >= 100000) {
-            binding.tipsText.text = getString(R.string.tipBase,
-                resources.getString(R.string.tip1),
-                resources.getString(R.string.tip6),
-                resources.getString(R.string.tip7),
-                resources.getString(R.string.tip8),
-                resources.getString(R.string.tip9))
-        } else if (netWorth >= 10000) {
-            binding.tipsText.text = getString(R.string.tipBase,
-                resources.getString(R.string.tip2),
-                resources.getString(R.string.tip6),
-                resources.getString(R.string.tip7),
-                resources.getString(R.string.tip8),
-                resources.getString(R.string.tip9))
-        } else if (netWorth >= 1000) {
-            binding.tipsText.text = getString(R.string.tipBase,
-                resources.getString(R.string.tip3),
-                resources.getString(R.string.tip6),
-                resources.getString(R.string.tip7),
-                resources.getString(R.string.tip8),
-                resources.getString(R.string.tip9))
-        } else if (netWorth >= -1000) {
-            binding.tipsText.text = getString(R.string.tipBase,
-                resources.getString(R.string.tip4),
-                resources.getString(R.string.tip6),
-                resources.getString(R.string.tip7),
-                resources.getString(R.string.tip8),
-                resources.getString(R.string.tip9))
-        } else {
-            binding.tipsText.text = getString(R.string.tipBase,
-                resources.getString(R.string.tip5),
-                resources.getString(R.string.tip6),
-                resources.getString(R.string.tip7),
-                resources.getString(R.string.tip8),
-                resources.getString(R.string.tip9))
-        }
-    }
 
-    fun setPieChartDefault(checkIfPieChartEmpty: Boolean){
+    fun setPieChartDefault(){
         binding.pieChart.addPieSlice(
             PieModel(
                 0F, Color.parseColor("#A9A9A9")
@@ -113,7 +75,7 @@ class SummaryFragment : Fragment() {
         )
     }
 
-    fun setPieChart(dataForPieChart: Array<Int>) {
+    fun setPieChart(dataForPieChart: Array<Double>) {
         // Set the data and color to the pie chart
         binding.pieChart.addPieSlice(
             PieModel(

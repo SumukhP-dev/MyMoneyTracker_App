@@ -22,35 +22,10 @@ import com.example.mymoneytracker.ui.OnSwipeTouchListener
 class HistoryFragment : Fragment() {
     private lateinit var viewModel: HistoryViewModel
     private lateinit var inputData: Array<String>
-    private lateinit var dataForPieChart: Array<Int>
+    private lateinit var dataForPieChart: Array<Double>
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
     private val TAG = "testCalls"
-
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "onStart() called")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "onResume() called")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "onPause() called")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(TAG, "onStop() called")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, "onDestroy() called")
-    }
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreateView(
@@ -64,7 +39,7 @@ class HistoryFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(HistoryViewModel::class.java)
 
         // This implements swipe gestures to go to Home Fragment
-        binding.constraintLayout4.setOnTouchListener(object: OnSwipeTouchListener(context) {
+        binding.constraintLayout4.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeRight() {
             }
             override fun onSwipeLeft() {
@@ -74,8 +49,8 @@ class HistoryFragment : Fragment() {
 
         (activity as MainActivity).supportActionBar?.title = "History"
 
-        if(!this::dataForPieChart.isInitialized) {
-            dataForPieChart = arrayOf(0, 0, 0, 0, 0, 0, 0)
+        if (!this::dataForPieChart.isInitialized) {
+            dataForPieChart = arrayOf(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
         }
 
         binding.backHistoryButton.setOnClickListener {
@@ -102,10 +77,12 @@ class HistoryFragment : Fragment() {
             var newDataList = arrayOf<String>()
             newDataList = newDataList.plus(inputData)
             viewModel.addData(newDataList)
-            viewModel.changeNetWorth(newDataList[1].toInt())
+            viewModel.changeNetWorth(newDataList[1].toDouble())
             val dataForPieChart2 = viewModel.sendDataToPieChart(newDataList, dataForPieChart)
-            setFragmentResult("dataForPieChartKey",
-                bundleOf("dataForPieChartBundleKey" to dataForPieChart2))
+            setFragmentResult(
+                "dataForPieChartKey",
+                bundleOf("dataForPieChartBundleKey" to dataForPieChart2)
+            )
         }
 
         // This will pass the ArrayList to our Adapter

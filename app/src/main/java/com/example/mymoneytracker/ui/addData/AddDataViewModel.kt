@@ -11,7 +11,10 @@ import java.util.regex.Pattern
 class AddDataViewModel : ViewModel() {
     var dateTextErrorMessage: MutableLiveData<String> = MutableLiveData("")
     var moneyTextErrorMessage: MutableLiveData<String> = MutableLiveData("")
+    var amountEntered: MutableLiveData<Double> = MutableLiveData(0.00)
+    var textSizeBefore: MutableLiveData<Int> = MutableLiveData(0)
 
+    // Validates date and returns true if valid
     @RequiresApi(Build.VERSION_CODES.O)
     fun validate(registerDate: String): Boolean {
         val p: Pattern = Pattern.compile("^(1[0-9]|0[1-9]|3[0-1]|2[1-9])/(0[1-9]|1[0-2])/[0-9]{4}$")
@@ -26,6 +29,7 @@ class AddDataViewModel : ViewModel() {
         }
     }
 
+    // Validates all fields of AddData Screen
     @RequiresApi(Build.VERSION_CODES.O)
     fun checkAllFields(dateText: String, moneyText: String): Boolean {
         var check = false
@@ -40,5 +44,14 @@ class AddDataViewModel : ViewModel() {
             check = true
         }
         return check
+    }
+
+    // Changes money amount to be properly reflected
+    // in other charts
+    fun changeAmountEntered(type: String, amount: Double) {
+        if (type != "Income") {
+            amountEntered.value = -1 * amount
+        }
+        amountEntered.value = amount
     }
 }
