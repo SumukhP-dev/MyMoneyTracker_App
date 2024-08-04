@@ -51,7 +51,8 @@ class AddDataViewModel : ViewModel() {
     fun changeAmountEntered(type: String, amount: Double) {
         if (type != "Income") {
             amountEntered.value = -1 * amount
+        } else {
+            amountEntered.value = amount
         }
-        amountEntered.value = amount
     }
 }

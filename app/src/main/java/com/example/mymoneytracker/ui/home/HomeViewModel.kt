@@ -31,7 +31,7 @@ class HomeViewModel : ViewModel() {
         mChart.setDrawGridBackground(true)
 
         var labels = emptyArray<String>()
-        treeMapToAdd.navigableKeySet().forEach {label ->
+        treeMapToAdd.navigableKeySet().forEach { label ->
             labels += label.toString()
         }
         labels += ""
@@ -86,8 +86,14 @@ class HomeViewModel : ViewModel() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun getArrayofDateObjects(dateArray: ArrayList<String>): ArrayList<LocalDate> {
         var arrayDateObjects = ArrayList<LocalDate>()
-        for(j in dateArray.indices) {
-            arrayDateObjects.add(LocalDate.of(dateArray[j].substring(6,10).toInt(), dateArray[j].substring(0,2).toInt(), dateArray[j].substring(3,5).toInt()))
+        for (j in dateArray.indices) {
+            arrayDateObjects.add(
+                LocalDate.of(
+                    dateArray[j].substring(6, 10).toInt(),
+                    dateArray[j].substring(0, 2).toInt(),
+                    dateArray[j].substring(3, 5).toInt()
+                )
+            )
         }
         return arrayDateObjects
     }
@@ -96,7 +102,7 @@ class HomeViewModel : ViewModel() {
     fun getNetWorthArray(amountArray: ArrayList<Double>): ArrayList<Double> {
         var netWorthArray = ArrayList<Double>()
         var currentNetWorth = 0.00
-        for(x in amountArray.indices) {
+        for (x in amountArray.indices) {
             currentNetWorth += amountArray[x]
             netWorthArray.add(currentNetWorth)
         }
@@ -105,7 +111,7 @@ class HomeViewModel : ViewModel() {
 
     fun netWorthColorChange(netWorth: Double) {
         val formattedMoneyText = String.format("%.2f", netWorth)
-            if (netWorth >= 0) {
+        if (netWorth >= 0) {
             netWorthAmountColor.value = Color.parseColor("#00FF0A")
             netWorthAmountText.value = "$$formattedMoneyText"
         } else {

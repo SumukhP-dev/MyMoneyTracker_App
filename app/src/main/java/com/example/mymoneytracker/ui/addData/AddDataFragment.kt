@@ -21,7 +21,6 @@ import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentAddDataBinding
 
-
 class AddDataFragment : Fragment() {
     private lateinit var viewModel: AddDataViewModel
     private var _binding: FragmentAddDataBinding? = null
@@ -29,11 +28,12 @@ class AddDataFragment : Fragment() {
 
     // one boolean variable to check whether all the text fields
     // are filled by the user, properly or not.
-    private var validateFields = true
+    private var validFields = true
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAddDataBinding.inflate(inflater, container, false)
@@ -44,18 +44,17 @@ class AddDataFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(AddDataViewModel::class.java)
 
         binding.addTransactionButton.setOnClickListener {
-            validateFields = setAllFields()
-            if (validateFields) {
+            validFields = setAllFields()
+            if (validFields) {
                 findNavController().navigate(R.id.action_addDataFragment_to_historyFragment)
 
-                viewModel.changeAmountEntered(binding.typeDropdown.selectedItem.toString(),
-                    binding.moneyText.text.toString().toDouble())
-                Log.d("Test AmountChanged", binding.moneyText.text.toString())
-                Log.d("Test AmountChanged", viewModel.amountEntered.value.toString())
+                viewModel.changeAmountEntered(
+                    binding.typeDropdown.selectedItem.toString(),
+                    binding.moneyText.text.toString().toDouble()
+                )
+                Log.d("TestAmountChanged", viewModel.amountEntered.value.toString())
 
-
-                //binding.moneyText.text.toString()
-                var dataList = arrayOf(
+                val dataList = arrayOf(
                     binding.dateText.text.toString(),
                     viewModel.amountEntered.value.toString(),
                     binding.descriptionText.text.toString(),
@@ -87,8 +86,9 @@ class AddDataFragment : Fragment() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if ((viewModel.textSizeBefore.value!! < count)
-                    && (binding.dateText.text.length == 2 || binding.dateText.text.length == 5)) {
+                if ((viewModel.textSizeBefore.value!! < count) &&
+                    (binding.dateText.text.length == 2 || binding.dateText.text.length == 5)
+                ) {
                     binding.dateText.setText("${binding.dateText.text}/")
                     binding.dateText.setSelection(binding.dateText.text.length)
                 }
@@ -99,8 +99,11 @@ class AddDataFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun setAllFields(): Boolean {
-        if (viewModel.checkAllFields(binding.dateText.text.toString(),
-                binding.moneyText.text.toString())) {
+        if (viewModel.checkAllFields(
+                binding.dateText.text.toString(),
+                binding.moneyText.text.toString()
+            )
+        ) {
             if (viewModel.dateTextErrorMessage.value?.isEmpty() == false) {
                 binding.dateText.error = viewModel.dateTextErrorMessage.value
             } else if (viewModel.moneyTextErrorMessage.value?.isEmpty() == false) {
