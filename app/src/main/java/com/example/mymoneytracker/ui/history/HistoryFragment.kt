@@ -79,10 +79,7 @@ class HistoryFragment : Fragment() {
             viewModel.addData(newDataList)
             viewModel.changeNetWorth(newDataList[1].toDouble())
             val dataForPieChart2 = viewModel.sendDataToPieChart(newDataList, dataForPieChart)
-            setFragmentResult(
-                "dataForPieChartKey",
-                bundleOf("dataForPieChartBundleKey" to dataForPieChart2)
-            )
+            viewModel.user.setDataForPieChart(dataForPieChart2)
         }
 
         // This will pass the ArrayList to our Adapter

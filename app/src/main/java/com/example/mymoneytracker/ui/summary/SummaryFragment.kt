@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.mymoneytracker.MainActivity
@@ -24,9 +23,10 @@ class SummaryFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSummaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -52,19 +52,22 @@ class SummaryFragment : Fragment() {
 
         binding.progressBar.progress = viewModel.getProgress(viewModel.user.getNetWorthCalculated())
 
-        setFragmentResultListener("dataForPieChartKey") { requestKey, bundle ->
-            val dataForPieChart = bundle.getSerializable("dataForPieChartBundleKey") as Array<Double>
-            viewModel.user.setDataForPieChart(dataForPieChart)
-            setPieChart(viewModel.user.getDataForPieChart())
-        }
-        if (viewModel.user.getDataForPieChart().isEmpty()) {
-            setPieChartDefault()
-        }
+        initializePieChart()
 
         binding.progressBar.max = 100
         binding.progressBar.progressTintList = ColorStateList.valueOf(Color.GREEN);
 
         return root
+    }
+
+    fun initializePieChart() {
+        for (element in viewModel.user.getDataForPieChart()) {
+            if (element != 0.0) {
+                setPieChart(viewModel.user.getDataForPieChart())
+                return
+            }
+        }
+        setPieChartDefault()
     }
 
     fun setPieChartDefault(){
