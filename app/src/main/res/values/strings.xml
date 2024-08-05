@@ -20,18 +20,16 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
-    <string name="tipBase">- %1$s \n - %2$s \n - %3$s \n - %4$s \n - %5$s</string>
+    <string name="tip1">- You have surplus money and can invest it in real estate</string>
+    <string name="tip2">- You have surplus money and can invest it in stocks and bonds</string>
+    <string name="tip3">- You should try to save more money</string>
+    <string name="tip4">- You should try to cut expenses and increase income</string>
+    <string name="tip5">- You should try to file for Chapter 7 Bankruptcy</string>
 
-    <string name="tip1">You have surplus money and can invest it in real estate</string>
-    <string name="tip2">You have surplus money and can invest it in stocks and bonds</string>
-    <string name="tip3">You should try to save more money</string>
-    <string name="tip4">You should try to cut expenses and increase income</string>
-    <string name="tip5">You should try to file for Chapter 7 Bankruptcy</string>
-
-    <string name="tip6">A savings account has a high annual percentage yield (APY) but have many withdrawal restrictions</string>
-    <string name="tip7">Stocks are high risk and high reward investments</string>
-    <string name="tip8">You can invest in real estate through real estate investment trusts (REITS) which are more affordable</string>
-    <string name="tip9">Remember to pay off your credit card balance every month </string>
+    <string name="tip6">- A savings account has a high annual percentage yield (APY) but have many withdrawal restrictions</string>
+    <string name="tip7">- Stocks are high risk and high reward investments</string>
+    <string name="tip8">- You can invest in real estate through real estate investment trusts (REITS) which are more affordable</string>
+    <string name="tip9">- Remember to pay off your credit card balance every month </string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
