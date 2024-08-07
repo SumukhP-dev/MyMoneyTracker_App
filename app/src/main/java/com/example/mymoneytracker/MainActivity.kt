@@ -15,7 +15,7 @@ import com.example.mymoneytracker.databinding.ActivityMainBinding
 import com.example.mymoneytracker.ui.login.LoginActivity
 import com.example.mymoneytracker.ui.settings.SettingsActivity
 import com.google.android.material.navigation.NavigationView
-
+import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,7 +41,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
-            ), drawerLayout
+            ),
+            drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -52,7 +53,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-
     }
 
     /***

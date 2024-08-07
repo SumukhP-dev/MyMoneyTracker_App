@@ -23,14 +23,7 @@ class HistoryViewModel : ViewModel() {
         user.setNetWorthCalculated(user.getNetWorthCalculated() + valueChanged)
     }
 
-    fun addData (newDataList: Array<String>) {
-        if (newDataList[1].toDouble() >= 0) {
-            user.addData(ItemsViewModel(newDataList[0], "$" + newDataList[1], newDataList[2]))
-        } else {
-            val endIndex = newDataList[1].length - 1
-            user.addData(ItemsViewModel(newDataList[0], newDataList[1].slice(listOf(0))
-                    + "$" + newDataList[1].slice(1..endIndex), newDataList[2]))
-        }
+    fun addData(newDataList: Array<String>) {
         user.addDate(newDataList[0])
         user.addAmount(newDataList[1].toDouble())
     }

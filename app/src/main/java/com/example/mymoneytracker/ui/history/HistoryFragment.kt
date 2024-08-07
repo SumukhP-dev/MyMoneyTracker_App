@@ -61,16 +61,6 @@ class HistoryFragment : Fragment() {
             findNavController().navigate(R.id.action_historyFragment_to_addDataFragment)
         }
 
-        // Getting the recyclerview by its id
-        val recyclerview = binding.recyclerView
-
-        // This creates a vertical layout Manager
-        recyclerview.layoutManager = LinearLayoutManager(context)
-
-        if (viewModel.user.getData().size == 0) {
-            viewModel.user.getData().add(ItemsViewModel("Date", "Money", "Description"))
-        }
-
         setFragmentResultListener("dataListKey") { requestKey, bundle ->
             // We use a String here, but any type that can be put in a Bundle is supported.
             inputData = bundle.getStringArray("dataListBundleKey")!!
@@ -81,12 +71,6 @@ class HistoryFragment : Fragment() {
             val dataForPieChart2 = viewModel.sendDataToPieChart(newDataList, dataForPieChart)
             viewModel.user.setDataForPieChart(dataForPieChart2)
         }
-
-        // This will pass the ArrayList to our Adapter
-        val adapter = CustomAdapter(viewModel.user.getData())
-
-        // Setting the Adapter with the recyclerview
-        recyclerview.adapter = adapter
 
         return root
     }

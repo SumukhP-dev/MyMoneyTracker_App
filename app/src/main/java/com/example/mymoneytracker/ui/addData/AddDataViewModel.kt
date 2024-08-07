@@ -4,15 +4,22 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.mymoneytracker.model.User
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.regex.Pattern
 
 class AddDataViewModel : ViewModel() {
+    private var database: FirebaseFirestore = Firebase.firestore
+
     var dateTextErrorMessage: MutableLiveData<String> = MutableLiveData("")
     var moneyTextErrorMessage: MutableLiveData<String> = MutableLiveData("")
     var amountEntered: MutableLiveData<Double> = MutableLiveData(0.00)
     var textSizeBefore: MutableLiveData<Int> = MutableLiveData(0)
+    var user: User = User.getInstance()
 
     // Validates date and returns true if valid
     @RequiresApi(Build.VERSION_CODES.O)
@@ -54,5 +61,25 @@ class AddDataViewModel : ViewModel() {
         } else {
             amountEntered.value = amount
         }
+    }
+
+    // Adds the transaction to the Cloud Firestore database
+    fun addTransactionToDatabase(
+        email: String,
+        date: String,
+        amount: Double,
+        type: String,
+        description: String
+    ) {
+        val transaction = HashMap<String, Any>()
+        transaction["date"] = date.replace("/","_")
+        transaction["amount"] = amount
+        transaction["type"] = type
+        transaction["description"] = description
+
+        database.collection("User")
+            .document(email)
+            .set(transaction).addOnCompleteListener {
+            }
     }
 }

@@ -54,11 +54,24 @@ class AddDataFragment : Fragment() {
                 )
                 Log.d("TestAmountChanged", viewModel.amountEntered.value.toString())
 
+                val date: String = binding.dateText.text.toString()
+                val amountEntered: String = viewModel.amountEntered.value.toString()
+                val description: String = binding.descriptionText.text.toString()
+                val type: String = binding.typeDropdown.selectedItem.toString()
+
                 val dataList = arrayOf(
-                    binding.dateText.text.toString(),
-                    viewModel.amountEntered.value.toString(),
-                    binding.descriptionText.text.toString(),
-                    binding.typeDropdown.selectedItem.toString()
+                    date,
+                    amountEntered,
+                    description,
+                    type
+                )
+
+                viewModel.addTransactionToDatabase(
+                    viewModel.user.getCurrentUser()?.email.toString(),
+                    date,
+                    amountEntered.toDouble(),
+                    type,
+                    description
                 )
 
                 setFragmentResult("dataListKey", bundleOf("dataListBundleKey" to dataList))
