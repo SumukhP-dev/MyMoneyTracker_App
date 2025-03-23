@@ -69,4 +69,5 @@ dependencies {
     implementation ("com.github.blackfizz:eazegraph:1.2.5l@aar")
     implementation ("com.nineoldandroids:library:2.4.0")
     implementation("com.google.firebase:firebase-common-ktx:21.0.0")
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
 }

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -16,6 +17,12 @@ import com.example.mymoneytracker.ui.login.LoginActivity
 import com.example.mymoneytracker.ui.settings.SettingsActivity
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.FirebaseApp
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import okio.IOException
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +39,27 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
+
+
+        // creating a client
+        val okHttpClient = OkHttpClient()
+
+        // building a request
+        val request = Request.Builder().url("http://192.168.0.113:5000/").build()
+
+        // making call asynchronously
+        okHttpClient.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                runOnUiThread {
+                    Toast.makeText(this@MainActivity, "server down", Toast.LENGTH_SHORT).show()
+                    binding.pagename.text = "error connecting to the server"
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                binding.pagename.text = response.body?.string()
+            }
+        })
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView

@@ -1,6 +1,7 @@
 package com.example.mymoneytracker.model
 
 import android.app.Application
+import com.example.mymoneytracker.ui.history.ItemsViewModel
 import com.google.firebase.auth.FirebaseUser
 
 class User : Application() {
@@ -10,6 +11,7 @@ class User : Application() {
         var amounts: ArrayList<Double> = ArrayList<Double>()
         var netWorthCalculated: Double = 0.0
         var user: User = getInstance()
+        var data: ArrayList<ItemsViewModel> = ArrayList<ItemsViewModel>()
 
         // Check if user is signed in (non-null) and update UI accordingly.
         var currentUser: FirebaseUser? = null
@@ -20,6 +22,10 @@ class User : Application() {
         fun getInstance(): User {
             return User()
         }
+    }
+
+    fun getData(): ArrayList<ItemsViewModel> {
+        return data
     }
 
     fun getDates(): ArrayList<String> {
@@ -52,6 +58,10 @@ class User : Application() {
 
     fun addAmount(amountToAdd: Double) {
         amounts.add(amountToAdd)
+    }
+
+    fun addToData(dataElement: ItemsViewModel) {
+        data.add(dataElement)
     }
 
     fun setNetWorthCalculated(netWorth: Double) {
