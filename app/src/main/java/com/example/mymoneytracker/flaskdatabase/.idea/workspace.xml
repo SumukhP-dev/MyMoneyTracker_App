@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="70929470-6b8a-4013-872d-f96652ddde71" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../../../../../.deployment" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../../.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ui/history/CustomAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ui/history/ItemsViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../../flaskdatabase/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../../flaskdatabase/.idea/bigdataide_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../../flaskdatabase/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../../flaskdatabase/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../../flaskdatabase/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../../flaskdatabase/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../../flaskdatabase/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../../flaskdatabase/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../../flaskdatabase/azure-deploy.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../../flaskdatabase/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../../../flaskdatabase/sql/WideWorldImportersUpdates.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../model/User.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/history/HistoryFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/history/HistoryFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/layout/card_view_design.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../res/layout/card_view_design.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/layout/fragment_add.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/layout/fragment_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../res/layout/fragment_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/layout/text_row_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../res/layout/text_row_item.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2ujsYKr6X4Xdo5LiLmznWaiIw0p" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="flaskdatabase" type="Python.FlaskServer">
+      <module name="flaskdatabase" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-PY-243.24978.54" />
+        <option value="bundled-python-sdk-91e3b7efe1d4-466328ff949b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.24978.54" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="70929470-6b8a-4013-872d-f96652ddde71" name="Changes" comment="" />
+      <created>1742773364647</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742773364647</updated>
+      <workItem from="1742773366066" duration="99000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

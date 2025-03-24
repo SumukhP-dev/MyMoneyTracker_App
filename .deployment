@@ -1,3 +1,0 @@
-@echo off
-echo Deploying Functions ...
-xcopy "C:\Users\sumuk\StudioProjects\MyMoneyTracker_App\flaskdatabase" "C:\Users\sumuk\StudioProjects\MyMoneyTracker_App" /Y /S
