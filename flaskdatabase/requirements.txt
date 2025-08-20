@@ -1,0 +1,8 @@
+pyodbc
+dotenv
+flask
+flask_restful
+tenacity
+opencensus-ext-azure
+opencensus-ext-flask
+logging
