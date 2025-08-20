@@ -32,8 +32,8 @@ if 'APPINSIGHTS_KEY' in os.environ:
 # Setup Flask Restful framework
 api = Api(app)
 parser = reqparse.RequestParser()
-parser.add_argument('customer')
-
+parser.add_argument('customername', type=str, required=True, help="Customer username is required")
+parser.add_argument('customerpassword', type=str, required=True, help="Customer password is required")
 
 # Implement singleton to avoid global objects
 class ConnectionManager(object):
@@ -103,9 +103,9 @@ class Queryable(Resource):
 
 # Customer Class
 class Customer(Queryable):
-    def get(self, customer_id):
+    def get(self, customer_username):
         customer = {}
-        customer["CustomerID"] = customer_id
+        customer["CustomerUsername"] = customer_username
         result = self.executeQueryJson("get", customer)
         return result, 200
 
@@ -115,16 +115,17 @@ class Customer(Queryable):
         result = self.executeQueryJson("put", customer)
         return result, 201
 
-    def patch(self, customer_id):
+    def patch(self, customer_id, customer_username, customer_password):
         args = parser.parse_args()
         customer = json.loads(args['customer'])
-        customer["CustomerID"] = customer_id
+        customer["CustomerUsername"] = customer_username
+        customer["CustomerPassword"] = customer_password
         result = self.executeQueryJson("patch", customer)
         return result, 202
 
-    def delete(self, customer_id):
+    def delete(self, customer_username):
         customer = {}
-        customer["CustomerID"] = customer_id
+        customer["CustomerUsername"] = customer_username
         result = self.executeQueryJson("delete", customer)
         return result, 202
 
@@ -137,5 +138,8 @@ class Customers(Queryable):
 
 
 # Create API routes
-api.add_resource(Customer, '/customer', '/customer/<customer_id>')
+api.add_resource(Customer,  '/customer', '/customer/<string:customername>')
 api.add_resource(Customers, '/customers')
+
+if __name__ == "__main__":
+  app.run(host="0.0.0.0")
