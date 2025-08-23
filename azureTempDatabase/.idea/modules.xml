@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/flaskdatabase.iml" filepath="$PROJECT_DIR$/.idea/flaskdatabase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/python-sql-azure.iml" filepath="$PROJECT_DIR$/.idea/python-sql-azure.iml" />
     </modules>
   </component>
 </project>

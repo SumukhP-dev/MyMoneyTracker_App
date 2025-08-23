@@ -1,67 +1,65 @@
 package com.example.mymoneytracker.ui.login
 
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import com.example.mymoneytracker.model.User
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuth
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.FormBody
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import okhttp3.Response
-import okio.IOException
+import okhttp3.RequestBody.Companion.toRequestBody
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
+
 
 class LoginViewModel: ViewModel() {
     var user: User = User.getInstance()
 
-    fun createAccount(email: String, password: String): Task<AuthResult> {
-        val okHttpClient = OkHttpClient()
+    @OptIn(ExperimentalUuidApi::class)
+    suspend fun createAccount(email: String, password: String): Boolean {
+        val userId = Uuid.random().toString()
 
-        val formBody = FormBody.Builder()
-            .add(email, password)
-            .build()
+        val json = "{ \"customerid\": \"$userId\", \"customername\": \"$email\", \"customerpassword\": \"$password\" }"
+
+        val formBody = json
+            .toRequestBody("application/json; charset=utf-8".toMediaType());
 
         val request = Request.Builder()
-            .url("http://192.168.0.113:5000/debug")
+            .url("http://127.0.0.1:5000/customer")
             .post(formBody)
             .build()
 
-        okHttpClient.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
+        val client = OkHttpClient()
 
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = client.newCall(request).execute()
+                response.isSuccessful
+            } catch (e: Exception) {
+                e.printStackTrace()
+                false
             }
-
-            override fun onResponse(call: Call, response: Response) {
-                if (response.body?.string() == "received") {
-
-                }
-            }
-        })
+        }
     }
 
-    fun loginAccount(email: String, password: String): Boolean {
-        val okHttpClient = OkHttpClient()
-
-        val formBody = FormBody.Builder()
-            .add(email, password)
-            .build()
-
+    suspend fun loginAccount(email: String, password: String): Boolean {
         val request = Request.Builder()
-            .url("http://192.168.1.8:5000/debug")
-            .post(formBody)
+            .url("http://127.0.0.1:5000/customer/$email/$password")
+            .get()
             .build()
 
-        okHttpClient.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
+        val client = OkHttpClient()
 
+        val response: String = withContext(Dispatchers.IO) {
+            try {
+                val response = client.newCall(request).execute()
+                response.body?.string() ?: ""
+            } catch (e: Exception) {
+                e.printStackTrace()
+                ""
             }
+        }
 
-            override fun onResponse(call: Call, response: Response) {
-
-            }
-        })
+        return response != ""
     }
 }

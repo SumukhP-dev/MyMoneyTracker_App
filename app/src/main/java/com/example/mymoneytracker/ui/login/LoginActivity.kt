@@ -5,18 +5,16 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.ActivityLoginBinding
 import com.example.mymoneytracker.ui.home.HomeFragment
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
 
 open class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel: LoginViewModel
-    private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,41 +24,34 @@ open class LoginActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
-        // Initialize Firebase Auth
-        auth = Firebase.auth
-
-        val user = Firebase.auth.currentUser
-        var emailVerified = false
-        user?.let {
-            // Name, email address, and profile photo Url
-            val name = it.displayName
-            val email = it.email
-            val photoUrl = it.photoUrl
-
-            // Check if user's email is verified
-            emailVerified = it.isEmailVerified
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getIdToken() instead.
-            val uid = it.uid
-        }
 
         binding.signInButton.setOnClickListener {
-            val taskResult: Task<AuthResult> =
-                viewModel.loginAccount(binding.email.text.toString(),
-                binding.password.text.toString(), auth)
-            taskResult.addOnCompleteListener(this) { task: Task<AuthResult> ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI
-                    Log.d("auth", "signInWithEmail:success")
-                    val user = auth.currentUser
+            lifecycleScope.launch(Dispatchers.Main) {
+                val success = viewModel.createAccount(binding.email.text.toString(),
+                    binding.password.text.toString())
+                if (success) {
+                    Log.d("create", "Custom backend login success")
                     goToHomeFragment()
                 } else {
-                    // If sign in fails, display a message to the user
-                    Log.w("auth", "signInWithEmail:failure", task.exception)
+                    Toast.makeText(
+                        baseContext,
+                        "Account creation failed.",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+                }
+            }
+        }
+
+        binding.createAccountButton.setOnClickListener {
+            lifecycleScope.launch(Dispatchers.Main) {
+                val success = viewModel.loginAccount(binding.email.text.toString(),
+                    binding.password.text.toString())
+                if (success) {
+                    Log.d("login", "Custom backend login success")
+                    goToHomeFragment()
+                } else {
                     Toast.makeText(
                         baseContext,
                         "Authentication failed.",
@@ -69,49 +60,24 @@ open class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-
-        binding.createAccountButton.setOnClickListener {
-            val taskResult: Task<AuthResult> = viewModel.createAccount(
-                binding.email.text.toString(),
-                binding.password.text.toString(), auth)
-            taskResult.addOnCompleteListener(this) { task: Task<AuthResult> ->
-                    if (task.isSuccessful) {
-                        // Sign up success, update UI
-                        Log.d("auth2", "signUpWithEmail:success")
-                        val user = auth.currentUser
-                        goToHomeFragment()
-                    } else {
-                        // If sign up fails, display a message to the user
-                        Log.w("auth2", "signUpWithEmail:failure", task.exception)
-                        Toast.makeText(
-                            baseContext,
-                            "Authentication failed.",
-                            Toast.LENGTH_SHORT,
-                        ).show()
-                    }
-            }
-        }
     }
 
     public override fun onStart() {
         super.onStart()
 
-        // Check if user is signed in (non-null) and update UI accordingly.
-        viewModel.user.setCurrentUser(auth.currentUser)
-
-        var checkIfSignedOut = intent.getBooleanExtra("checkIfSignedOut", false)
+        val checkIfSignedOut = intent.getBooleanExtra("checkIfSignedOut", false)
 
         if (checkIfSignedOut) {
-            FirebaseAuth.getInstance().signOut()
-            viewModel.user.setCurrentUser(null)
+            viewModel.user.setCurrentUserLoggedIn(false)
         }
 
-        if (viewModel.user.getCurrentUser() != null) {
+        // Check if user is signed in and update UI accordingly.
+        if (viewModel.user.getCurrentUserLoggedIn()) {
             goToHomeFragment()
         }
     }
 
-    fun goToHomeFragment() {
+    private fun goToHomeFragment() {
         supportFragmentManager.beginTransaction().replace(R.id.container, HomeFragment()).commit()
         finish()
     }

@@ -11,15 +11,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentAddDataBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class AddDataFragment : Fragment() {
     private lateinit var viewModel: AddDataViewModel
@@ -66,13 +70,14 @@ class AddDataFragment : Fragment() {
                     type
                 )
 
-                viewModel.addTransactionToDatabase(
-                    viewModel.user.getCurrentUser()?.email.toString(),
-                    date,
-                    amountEntered.toDouble(),
-                    type,
-                    description
-                )
+                lifecycleScope.launch(Dispatchers.Main) {
+                    viewModel.addTransactionToDatabase(
+                        date,
+                        amountEntered.toDouble(),
+                        type,
+                        description
+                    )
+                }
 
                 setFragmentResult("dataListKey", bundleOf("dataListBundleKey" to dataList))
 

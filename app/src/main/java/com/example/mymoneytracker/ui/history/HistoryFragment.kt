@@ -12,12 +12,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mymoneytracker.MainActivity
 import com.example.mymoneytracker.R
 import com.example.mymoneytracker.databinding.FragmentHistoryBinding
 import com.example.mymoneytracker.ui.OnSwipeTouchListener
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HistoryFragment : Fragment() {
     private lateinit var viewModel: HistoryViewModel
@@ -38,6 +41,10 @@ class HistoryFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(HistoryViewModel::class.java)
 
+        lifecycleScope.launch(Dispatchers.Main) {
+            viewModel.getTransactions()
+        }
+
         // This implements swipe gestures to go to Home Fragment
         binding.constraintLayout4.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeRight() {
@@ -48,10 +55,6 @@ class HistoryFragment : Fragment() {
         })
 
         (activity as MainActivity).supportActionBar?.title = "History"
-
-        if (!this::dataForPieChart.isInitialized) {
-            dataForPieChart = arrayOf(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
-        }
 
         binding.backHistoryButton.setOnClickListener {
             findNavController().navigate(R.id.action_historyFragment_to_nav_home)
@@ -78,7 +81,7 @@ class HistoryFragment : Fragment() {
             newDataList = newDataList.plus(inputData)
             viewModel.addData(newDataList)
             viewModel.changeNetWorth(newDataList[1].toDouble())
-            val dataForPieChart2 = viewModel.sendDataToPieChart(newDataList, dataForPieChart)
+            val dataForPieChart2 = viewModel.sendDataToPieChart(newDataList, viewModel.user.getDataForPieChart())
             viewModel.user.setDataForPieChart(dataForPieChart2)
         }
 

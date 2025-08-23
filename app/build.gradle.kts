@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     id("io.gitlab.arturbosch.detekt")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
@@ -70,4 +71,5 @@ dependencies {
     implementation ("com.nineoldandroids:library:2.4.0")
     implementation("com.google.firebase:firebase-common-ktx:21.0.0")
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
 }

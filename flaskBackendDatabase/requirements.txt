@@ -6,3 +6,5 @@ tenacity
 opencensus-ext-azure
 opencensus-ext-flask
 logging
+azure-identity
+werkzeug

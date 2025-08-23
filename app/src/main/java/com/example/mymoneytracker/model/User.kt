@@ -1,6 +1,7 @@
 package com.example.mymoneytracker.model
 
 import android.app.Application
+import com.example.mymoneytracker.UserDataModel
 import com.example.mymoneytracker.ui.history.ItemsViewModel
 import com.google.firebase.auth.FirebaseUser
 
@@ -12,12 +13,14 @@ class User : Application() {
         var netWorthCalculated: Double = 0.0
         var user: User = getInstance()
         var data: ArrayList<ItemsViewModel> = ArrayList<ItemsViewModel>()
+        var userData: ArrayList<UserDataModel> = ArrayList<UserDataModel>()
 
-        // Check if user is signed in (non-null) and update UI accordingly.
-        var currentUser: FirebaseUser? = null
+        // Check if user is signed in and update UI accordingly.
+        var currentUserLoggedIn: Boolean = false
+        var currentUserID: String = ""
 
         var tipsMessages: String = ""
-        var dataForPieChart: Array<Double> = emptyArray<Double>()
+        var dataForPieChart: Array<Double> = arrayOf(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
 
         fun getInstance(): User {
             return User()
@@ -26,6 +29,10 @@ class User : Application() {
 
     fun getData(): ArrayList<ItemsViewModel> {
         return data
+    }
+
+    fun getUserData(): ArrayList<UserDataModel> {
+        return userData
     }
 
     fun getDates(): ArrayList<String> {
@@ -40,8 +47,12 @@ class User : Application() {
         return netWorthCalculated
     }
 
-    fun getCurrentUser(): FirebaseUser? {
-        return currentUser
+    fun getCurrentUserLoggedIn(): Boolean {
+        return currentUserLoggedIn
+    }
+
+    fun getCurrentUserID(): String {
+        return currentUserID
     }
 
     fun getTipsMessages(): String {
@@ -64,12 +75,20 @@ class User : Application() {
         data.add(dataElement)
     }
 
+    fun setUserData(userDataList: ArrayList<UserDataModel>) {
+        userData = userDataList
+    }
+
     fun setNetWorthCalculated(netWorth: Double) {
         netWorthCalculated = netWorth
     }
 
-    fun setCurrentUser(newUser: FirebaseUser?) {
-        currentUser = newUser
+    fun setCurrentUserLoggedIn(currentUserLoggedInCheck: Boolean) {
+        currentUserLoggedIn = currentUserLoggedInCheck
+    }
+
+    fun setCurrentUserID(userID: String) {
+        currentUserID = userID
     }
 
     fun setTipsMessages(tips: String) {
