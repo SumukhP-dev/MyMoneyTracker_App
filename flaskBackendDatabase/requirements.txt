@@ -8,3 +8,4 @@ opencensus-ext-flask
 logging
 azure-identity
 werkzeug
+gunicorn

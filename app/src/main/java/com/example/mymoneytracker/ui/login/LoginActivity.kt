@@ -27,9 +27,10 @@ open class LoginActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
 
-        binding.signInButton.setOnClickListener {
+        binding.createAccountButton.setOnClickListener {
             lifecycleScope.launch(Dispatchers.Main) {
-                val success = viewModel.createAccount(binding.email.text.toString(),
+                val success = viewModel.createAccount(binding.email.text.toString()
+                    .substring(0, binding.email.text.length - 1),
                     binding.password.text.toString())
                 if (success) {
                     Log.d("create", "Custom backend login success")
@@ -44,7 +45,7 @@ open class LoginActivity : AppCompatActivity() {
             }
         }
 
-        binding.createAccountButton.setOnClickListener {
+        binding.signInButton.setOnClickListener {
             lifecycleScope.launch(Dispatchers.Main) {
                 val success = viewModel.loginAccount(binding.email.text.toString(),
                     binding.password.text.toString())

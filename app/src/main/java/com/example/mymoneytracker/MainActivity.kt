@@ -40,27 +40,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-
-        // creating a client
-        val okHttpClient = OkHttpClient()
-
-        // building a request
-        val request = Request.Builder().url("http://192.168.0.113:5000/").build()
-
-        // making call asynchronously
-        okHttpClient.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                runOnUiThread {
-                    Toast.makeText(this@MainActivity, "server down", Toast.LENGTH_SHORT).show()
-                    binding.pagename.text = "error connecting to the server"
-                }
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                binding.pagename.text = response.body?.string()
-            }
-        })
-
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)

@@ -1,5 +1,6 @@
 package com.example.mymoneytracker.ui.login
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.mymoneytracker.model.User
 import kotlinx.coroutines.Dispatchers
@@ -14,6 +15,7 @@ import kotlin.uuid.Uuid
 
 class LoginViewModel: ViewModel() {
     var user: User = User.getInstance()
+    val TAG = "Authentication"
 
     @OptIn(ExperimentalUuidApi::class)
     suspend fun createAccount(email: String, password: String): Boolean {
@@ -33,7 +35,11 @@ class LoginViewModel: ViewModel() {
 
         return withContext(Dispatchers.IO) {
             try {
+                Log.d(TAG, " request: $request")
+
                 val response = client.newCall(request).execute()
+                Log.d(TAG, " response: $response")
+
                 response.isSuccessful
             } catch (e: Exception) {
                 e.printStackTrace()
