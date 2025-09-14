@@ -28,6 +28,8 @@ You can visit the following link: https://github.com/SumukhP-dev/MyMoneyTracker_
 - **Frontend**: Native Android UI
 - **Backend**: Flask
 - **Database**: Microsoft Azure SQL Database
+- **Dataset Collection/Cleaning**: Microsoft Azure SQL Database
+- **Model**: LLM based on tuning the llama-3.1-8b model
 
 ---
 
