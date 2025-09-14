@@ -1,16 +1,39 @@
 # MyMoneyTracker App
+A Kotlin-based mobile app to track a user’s income and expenses. 
 
-## About
-This is a mobile app made with Android Studio and with
-the Kotlin programming language to help the user
-track income and expenses.
+---
 
-## Running the App
-Go into the App folder and then the release folder and
-then install the apk file on a phone using package
-manager.
+## Screens & Demo  
+![Screenshot Placeholder](screenshots/HomePage.png)  
+![Screenshot Placeholder]( screenshots/HistoryPage.png)  
+![Screenshot Placeholder]( screenshots/SummaryPage.png)  
 
-## Purpose
-This repository serves as a way to catalogue the process
-of making a mobile app while also showing proficiency in
-Kotlin and Android Studio.
+## Download the app
+You can visit the following link: https://github.com/SumukhP-dev/MyMoneyTracker_App/blob/master/app/release/app-release.apk to access the page and download the app.
+
+---
+
+## Features (What You’ll See)  
+- Bar chart and TextView showing the net worth of the user
+- History of transactions stored in a RecyclerView
+- Add a transaction with the amount, type, date, and description in detail
+- Pie chart to show the types of transactions and tips based on net worth
+
+---
+
+## Tech Stack  
+- **Language**: Kotlin, Python, XML
+- **IDE**: Android Studio
+- **Packages**: Flask-RESTful, Werkzeug
+- **Frontend**: Native Android UI
+- **Backend**: Flask
+- **Database**: Microsoft Azure SQL Database
+
+---
+
+## License & Contact  
+**License:** MIT  
+
+**Author:** Sumukh Paspuleti
+- [LinkedIn](https://www.linkedin.com/in/sumukh-paspuleti/)  
+- [Email](mailto:spaspuleti3@gatech.edu)  
