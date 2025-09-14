@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nestedScrollView2"
@@ -10,111 +11,70 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:minHeight="700dp"
         tools:context=".ui.home.HomeFragment">
 
-        <Button
+        <!-- History Button -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/historyButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/HomeButton"
             android:text="History"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.053"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.94" />
+            app:layout_constraintTop_toBottomOf="@id/cardViewBarChart"
+            android:layout_margin="16dp" />
 
-        <Button
+        <!-- Summary Button -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/summaryButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/HomeButton"
             android:text="Summary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.906"
-            app:layout_constraintStart_toEndOf="@+id/historyButton"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.94" />
+            app:layout_constraintTop_toBottomOf="@id/cardViewBarChart"
+            android:layout_margin="16dp" />
 
+        <!-- Net Worth Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewNetWorth"
-            android:layout_width="379dp"
-            android:layout_height="95dp"
-            android:layout_marginTop="16dp"
-            android:elevation="10dp"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            style="@style/HomeCard"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/netWorth"
-                    android:layout_width="112dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="129dp"
-                    android:layout_marginLeft="140dp"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginEnd="138dp"
-                    android:layout_marginBottom="54dp"
-                    android:text="Net Worth"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
+                    style="@style/HomeCardTitle"
+                    android:text="Net Worth" />
 
                 <TextView
                     android:id="@+id/netWorthAmount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="88dp"
-                    android:layout_marginTop="49dp"
-                    android:layout_marginEnd="97dp"
-                    android:layout_marginBottom="14dp"
-                    android:textAlignment="center"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintTop_toBottomOf="@+id/netWorth"
-                    app:layout_constraintVertical_bias="0.041" />
-
-            </RelativeLayout>
-
+                    style="@style/HomeCardValue"
+                    android:text="$25,000" />
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <!-- Bar Chart Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewBarChart"
-            android:layout_width="384dp"
-            android:layout_height="474dp"
-            android:elevation="10dp"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/HomeCard"
+            app:layout_constraintTop_toBottomOf="@id/cardViewNetWorth"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardViewNetWorth"
-            app:layout_constraintVertical_bias="0.13999999">
+            app:layout_constraintEnd_toEndOf="parent">
 
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/chart"
-                android:layout_width="381dp"
-                android:layout_height="452dp"></com.github.mikephil.charting.charts.BarChart>
-
+                android:layout_width="match_parent"
+                android:layout_height="400dp" />
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.core.widget.NestedScrollView>

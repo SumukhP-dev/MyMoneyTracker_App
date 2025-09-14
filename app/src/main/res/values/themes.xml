@@ -28,6 +28,13 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="ToolbarTitleStyle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+
     <style name="Theme.MyMoneyTracker.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

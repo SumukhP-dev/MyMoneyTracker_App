@@ -1,0 +1,248 @@
+Account,Amount,Category,Date,Description,Financial_Tip,Location
+A123,2,Chicago,8/8/2023,500.00,"**Description=500.00, Category= Chicago, Amount=2.0:** Ensure all transactions are clearly described and categorized, no matter how small, for accurate tracking.",Salary Credit
+A123,2,Boston,7/7/2023,500.00,"**500.00, Category= Boston, Amount=2.0:** Even small, miscellaneous expenses like this add up; track all spending to understand where your money goes.",Salary Credit
+A123,2,San Francisco,8/31/2023,500.00,"**Transaction 9 (Malformed):** Always double-check transaction details for accuracy, and ensure even small or unusual expenses are categorized correctly.",Earnings Deposit
+A123,10,Cash Withdrawal,2/21/2023,ATM Withdrawal - $10,**ATM Withdrawal - $10:** Track small cash withdrawals to understand where your money is going.,Chicago
+A123,15,Cash Withdrawal,4/28/2023,ATM Withdrawal - $15,"Always track cash spending, as it's easy to lose sight of.",Chicago
+A123,15,Cash Withdrawal,10/3/2023,ATM Withdrawal - $15,**ATM Withdrawal:** Keep track of how you spend cash; it's easy to lose sight of small amounts.,Los Angeles
+A123,15,Cash Withdrawal,4/10/2023,ATM Withdrawal - $15,"**ATM Withdrawal:** Try to limit cash withdrawals and be mindful of ATM fees, using digital payments when possible.",Chicago
+A123,15,Cash Withdrawal,9/15/2023,ATM Withdrawal - $15,**ATM Withdrawal:** Minimize ATM fees by using your bank's ATMs or getting cash back at stores.,Los Angeles
+A123,15,Cash Withdrawal,5/16/2023,ATM Withdrawal - $15,"**ATM Withdrawal:** Track all cash expenses carefully, as they are often easy to forget in your budget.",Chicago
+A123,15,Cash Withdrawal,7/22/2023,ATM Withdrawal - $15,**ATM Withdrawal - $15:** Use your own bank's ATM to avoid unnecessary withdrawal fees.,Boston
+A123,15,Cash Withdrawal,8/28/2023,ATM Withdrawal - $15,**ATM Withdrawal - $15:** Track all cash spending diligently; consider using a debit card for better record-keeping.,Boston
+A123,15,Cash Withdrawal,6/1/2023,ATM Withdrawal - $15,**ATM Withdrawal - $15:** Use your own bank's ATM or get cash back at a store to avoid unnecessary transaction fees.,Chicago
+A123,35,Automotive,6/22/2023,Car Repair - Auto Shop,**Car Repair - Auto Shop:** Maintain an emergency fund specifically for unexpected expenses like car repairs.,Chicago
+A123,35,Automotive,5/1/2023,Car Repair - Auto Shop,Set aside funds in an emergency account specifically for car maintenance and repairs.,San Francisco
+A123,35,Automotive,9/18/2023,Car Repair - Auto Shop,**Car Repair - Auto Shop:** Build an emergency fund specifically for unexpected expenses like car repairs to avoid debt.,New York
+A123,35,Automotive,10/6/2023,Car Repair - Auto Shop,**Car Repair - Auto Shop:** Maintain an emergency fund specifically for unexpected expenses like car repairs.,San Francisco
+A123,35,Automotive,4/13/2023,Car Repair - Auto Shop,**Car Repair - Auto Shop:** Start building an emergency fund for unexpected expenses like car repairs.,San Francisco
+A123,35,Automotive,6/4/2023,Car Repair - Auto Shop,**Car Repair:** Build an emergency fund specifically for unexpected car maintenance.,San Francisco
+A123,35,Automotive,7/25/2023,Car Repair - Auto Shop,**Car Repair - Auto Shop:** Maintain an emergency fund specifically for unexpected expenses like vehicle repairs.,San Francisco
+A123,45,Automotive,2/15/2023,Car Repair - Auto Shop,**Car Repair - Auto Shop:** Maintain an emergency fund specifically for unexpected expenses like car repairs.,New York
+A123,20,Automotive,3/15/2023,Car Wash,**Car Wash:** Save money by washing your car at home when weather permits.,Los Angeles
+A123,20,Automotive,8/20/2023,Car Wash,"**Car Wash:** For routine washes, consider doing it yourself or finding more affordable options.",San Francisco
+A123,35,Automotive,2/24/2023,Car Wash,**Car Wash:** Consider DIY car washing or bulk wash passes to reduce costs.,San Francisco
+A123,30,Dining Out,3/9/2023,Coffee Shop - Morning Coffee,**Coffee Shop:** Consider making coffee at home a few days a week to save money on daily indulgences.,Boston
+A123,30,Dining Out,8/14/2023,Coffee Shop - Morning Coffee,**Coffee Shop - Morning Coffee:** Brewing coffee at home can save a significant amount over time.,Los Angeles
+A123,50,Credit Card Payment,2/22/2023,Credit Card Payment,**Credit Card Payment:** Always aim to pay more than the minimum due to save on interest.,San Francisco
+A123,15,Dining Out,8/23/2023,Dining Out - Mexican Restaurant,**Dining Out - Mexican Restaurant:** Set a realistic weekly or monthly budget for dining out to curb impulsive restaurant spending.,Boston
+A123,45,Healthcare,3/21/2023,Doctor's Visit,**Doctor's Visit:** Understand your health insurance coverage to minimize out-of-pocket costs for medical care.,San Francisco
+A123,35,Healthcare,2/9/2023,Doctor's Visit,**Doctor's Visit:** Maintain an emergency fund specifically for unexpected healthcare costs or emergencies.,San Francisco
+A123,45,Healthcare,5/30/2023,Doctor's Visit,**Doctor's Visit:** Understand your health insurance plan's co-pays and deductibles to anticipate and budget for healthcare costs.,Los Angeles
+A123,70,Groceries,2/13/2023,Grocery Shopping,**Grocery Shopping:** Plan your meals and create a shopping list to avoid impulse purchases and reduce food waste.,San Francisco
+A123,50,Groceries,1/1/2023,Grocery Shopping,**Grocery Shopping:** Plan your meals and make a grocery list to avoid impulse purchases.,New York
+A123,60,Subscriptions,9/27/2023,Gym Membership Renewal,**Gym Membership Renewal:** Regularly review all subscriptions to ensure you're using them and getting value for your money.,New York
+A123,60,Subscriptions,8/3/2023,Gym Membership Renewal,**Gym Membership Renewal:** Evaluate if you're actively using it; cancel or negotiate if not.,Boston
+A123,60,Subscriptions,6/13/2023,Gym Membership Renewal,**Gym Membership Renewal:** Regularly assess if you're getting value from your subscriptions; cancel if unused.,San Francisco
+A123,60,Subscriptions,10/15/2023,Gym Membership Renewal,**Gym Membership Renewal:** Evaluate if you're using your gym membership enough to justify its cost; consider alternatives.,Los Angeles
+A123,60,Subscriptions,7/1/2023,Gym Membership Renewal,**Gym Membership Renewal:** Regularly review all your subscriptions to ensure you're using and getting value from them.,Boston
+A123,80,Subscriptions,1/25/2023,Gym Membership Renewal,"**Gym Membership Renewal:** Ensure you're regularly using your membership; if not, explore cheaper fitness options or renegotiate.",Los Angeles
+A123,60,Subscriptions,9/9/2023,Gym Membership Renewal,**Transaction 8: Gym Membership Renewal**,San Francisco
+A123,60,Subscriptions,4/22/2023,Gym Membership Renewal,**Gym Membership Renewal:** Regularly review your subscriptions to ensure you're still using and getting value from them.,San Francisco
+A123,60,Subscriptions,5/10/2023,Gym Membership Renewal,Regularly review all your subscriptions to ensure you're using them and getting good value.,San Francisco
+A123,25,Dining Out,1/19/2023,Lunch at Cafe,**Lunch at Cafe:** Packing your lunch a few times a week can significantly save money.,San Francisco
+A123,25,Dining Out,2/27/2023,Lunch at Cafe,**Lunch at Cafe:** Pack your lunch a few times a week to significantly cut dining out expenses.,Los Angeles
+A123,60,Utilities,1/16/2023,Mobile Phone Bill Payment,**Mobile Phone Bill Payment:** Review your phone plan annually to ensure you're getting the best deal.,New York
+A123,150,Loan Payment,3/6/2023,Mortgage Payment,**Mortgage Payment:** Always pay on time to protect your credit score and avoid late fees.,Los Angeles
+A123,150,Loan Payment,3/24/2023,Mortgage Payment,**Mortgage Payment:** Consider making extra principal payments to build equity faster and reduce overall interest.,Los Angeles
+A123,200,Loan Payment,1/10/2023,Mortgage Payment,**Mortgage Payment:** Explore making small extra payments to reduce interest and pay off your mortgage faster.,Boston
+A123,150,Loan Payment,8/11/2023,Mortgage Payment,**Mortgage Payment:** Consistently prioritize your mortgage payment to build equity and secure your home.,San Francisco
+A123,200,Loan Payment,2/6/2023,Mortgage Payment,**Mortgage Payment:** Always prioritize your mortgage payment; paying it on time builds equity and secures your home.,Los Angeles
+A123,25,Entertainment,9/24/2023,Movie Theater Tickets,**Movie Theater Tickets:** Set a monthly budget for entertainment to keep discretionary spending in check.,Los Angeles
+A123,25,Entertainment,4/19/2023,Movie Theater Tickets,**Movie Theater Tickets:** Allocate a specific amount in your budget for entertainment to enjoy without guilt.,Chicago
+A123,25,Entertainment,4/1/2023,Movie Theater Tickets,**Movie Theater Tickets:** Budget for entertainment and look for matinee showings or discount days.,Chicago
+A123,25,Entertainment,10/12/2023,Movie Theater Tickets,**Movie Theater Tickets:** Look for matinee prices or utilize streaming services for more cost-effective entertainment.,Boston
+A123,25,Entertainment,5/7/2023,Movie Theater Tickets,Set a monthly entertainment budget to enjoy activities like movies without overspending.,Chicago
+A123,25,Entertainment,7/13/2023,Movie Theater Tickets,**Movie Theater Tickets:** Look for matinee prices or consider streaming at home for entertainment savings.,Chicago
+A123,25,Entertainment,6/28/2023,Movie Theater Tickets,**Movie Theater Tickets:** Look for matinee showings or loyalty programs to reduce entertainment costs.,New York
+A123,25,Entertainment,7/31/2023,Movie Theater Tickets,**Movie Theater Tickets:** Budget for entertainment and explore cheaper alternatives like streaming or matinee showings.,New York
+A123,25,Entertainment,9/6/2023,Movie Theater Tickets,**Transaction 5: Movie Theater Tickets**,Los Angeles
+A123,20,Entertainment,1/13/2023,Movie Tickets,**Movie Tickets:** Set a monthly budget for entertainment to enjoy responsibly.,Los Angeles
+A123,30,Subscriptions,5/13/2023,Online Gaming Subscription,**Online Gaming Subscription:** Review all subscriptions annually to cut unused or undervalued services.,Los Angeles
+A123,30,Subscriptions,7/4/2023,Online Gaming Subscription,**Online Gaming Subscription:** Regularly review all subscriptions and cancel any you no longer actively use or value.,San Francisco
+A123,30,Subscriptions,8/6/2023,Online Gaming Subscription,**Online Gaming Subscription:** Review all subscriptions regularly and cancel any you no longer use or value.,San Francisco
+A123,30,Subscriptions,9/30/2023,Online Gaming Subscription,"**Online Gaming Subscription:** Evaluate if this subscription provides enough value to justify its cost, especially compared to other entertainment options.",Chicago
+A123,30,Subscriptions,9/12/2023,Online Gaming Subscription,**Online Gaming Subscription:** Regularly review all subscriptions to ensure you're getting value and cancel any you no longer use.,Los Angeles
+A123,30,Subscriptions,10/18/2023,Online Gaming Subscription,**Online Gaming Subscription:** Review all subscriptions monthly and cancel any you don't actively use or enjoy.,New York
+A123,30,Subscriptions,7/19/2023,Online Gaming Subscription,**Online Gaming Subscription:** Review all your subscriptions monthly and cancel any you no longer actively use.,Los Angeles
+A123,30,Subscriptions,6/16/2023,Online Gaming Subscription,**Online Gaming Subscription:** Review all recurring subscriptions annually and cancel any you no longer actively use.,Boston
+A123,30,Subscriptions,4/7/2023,Online Gaming Subscription,**Online Gaming Subscription:** Conduct a quarterly audit of all your digital subscriptions and cancel those you rarely use.,Los Angeles
+A123,40,Shopping,2/25/2023,Online Shopping,**Online Shopping:** Pause before buying; add items to your cart and wait 24 hours to avoid impulse purchases.,Online
+A123,20,Online Shopping,2/19/2023,Online Shopping - Electronics,**Online Shopping - Electronics:** Always compare prices from multiple retailers before making a purchase to ensure you get the best deal.,Chicago
+A123,30,Online Shopping,2/18/2023,Online Shopping - Electronics,**Online Shopping - Electronics:** Pause before making online purchases to compare prices and ensure it's a planned expense.,Los Angeles
+A123,60,Income,3/12/2023,Paycheck Deposit,**Paycheck Deposit:** Automate a portion of your income to go directly into savings or investments first.,New York
+A123,80,Income,2/7/2023,Paycheck Deposit,"**Paycheck Deposit:** Automate a small transfer to a savings account with every paycheck, even if it's just a few dollars.",Chicago
+A123,500,Income,1/4/2023,Paycheck Deposit,**Paycheck Deposit:** Automate a portion of your income into savings before spending.,San Francisco
+A123,60,Income,5/21/2023,Paycheck Deposit,**Paycheck Deposit:** Automate a portion of your paycheck to go directly into savings or investments.,San Francisco
+A123,40,Shopping,5/18/2023,Point of Sale Shopping,**Point of Sale Shopping:** Pause before buying and consider if this purchase aligns with your financial goals.,Los Angeles
+A123,120,Rent,2/3/2023,Rent Payment,**Rent Payment:** Automate your rent payments to ensure they are always paid on time and avoid late fees.,New York
+A123,800,Rent,1/7/2023,Rent Payment,**Rent Payment:** Ensure your housing costs fit comfortably within 25-30% of your income.,New York
+A123,120,Rent,2/10/2023,Rent Payment,**Rent Payment:** Aim for your rent to be no more than 30% of your gross monthly income.,Chicago
+A123,10,Dining Out,3/29/2023,Snack Purchase,**Snack Purchase:** Pack snacks from home to save money and potentially eat healthier.,Los Angeles
+A123,10,Dining Out,9/21/2023,Snack Purchase,**Snack Purchase:** Buy snacks in bulk or prepare them at home to avoid higher convenience store prices.,Chicago
+A123,10,Dining Out,4/16/2023,Snack Purchase,**Snack Purchase:** Consider packing snacks from home to save money and eat healthier.,Los Angeles
+A123,10,Dining Out,7/10/2023,Snack Purchase,**Snack Purchase:** Pack snacks from home to curb frequent small purchases that can impact your budget.,San Francisco
+A123,10,Dining Out,9/3/2023,Snack Purchase,**Transaction 2: Snack Purchase**,New York
+A123,10,Dining Out,10/9/2023,Snack Purchase,**Snack Purchase:** Packing snacks from home can save money and help you eat healthier.,Chicago
+A123,10,Dining Out,7/28/2023,Snack Purchase,**Snack Purchase:** Pack snacks from home to avoid impulse buys and save money on frequent small purchases.,Chicago
+A123,10,Dining Out,10/27/2023,Snack Purchase,**Snack Purchase:** Pack snacks from home to save money and potentially eat healthier.,Chicago
+A123,10,Dining Out,6/25/2023,Snack Purchase,**Snack Purchase:** Pack snacks from home to avoid impulse purchases and save cash.,San Francisco
+A123,40,Utilities,2/16/2023,Utility Bill Payment,**Utility Bill Payment:** Look for ways to conserve energy and water around your home to potentially lower your monthly utility costs.,New York
+B456,10,Cash Withdrawal,1/11/2023,ATM Withdrawal,**ATM Withdrawal:** Try to plan cash needs to minimize ATM fees.,Los Angeles
+B456,15,Cash Withdrawal,2/14/2023,ATM Withdrawal - $15,"**ATM Withdrawal - $15:** Track your small cash expenditures carefully, as they can add up quickly if not accounted for.",Chicago
+B456,35,Automotive,2/17/2023,Car Repair - Auto Shop,**Car Repair - Auto Shop:** Build an emergency fund specifically for unexpected expenses like car repairs to avoid debt.,San Francisco
+B456,20,Automotive,4/20/2023,Car Wash,**Car Wash:** Explore DIY options or loyalty programs to reduce recurring maintenance costs.,Los Angeles
+B456,20,Automotive,5/8/2023,Car Wash,"Consider if you can perform some routine car maintenance, like car washes, yourself to save money.",Los Angeles
+B456,20,Automotive,9/25/2023,Car Wash,"**Car Wash:** Look for ways to reduce recurring small expenses, like washing your car at home occasionally.",Chicago
+B456,20,Automotive,4/2/2023,Car Wash,**Car Wash:** Consider washing your car yourself periodically to save on routine expenses.,Los Angeles
+B456,20,Automotive,6/29/2023,Car Wash,**Car Wash:** Budget for routine car maintenance and consider occasional DIY washing to save.,San Francisco
+B456,20,Automotive,8/1/2023,Car Wash,**Car Wash:** Consider washing your car yourself occasionally to save on routine vehicle maintenance costs.,Chicago
+B456,20,Automotive,10/13/2023,Car Wash,**Car Wash:** Consider washing your car at home periodically to save on professional washes.,Chicago
+B456,40,Shopping,1/20/2023,Clothing Shopping,**Clothing Shopping:** Shop with a specific list in mind to avoid unnecessary purchases.,Los Angeles
+B456,35,Dining Out,2/5/2023,Coffee Shop - Morning Coffee,**Coffee Shop - Morning Coffee:** Make coffee at home a few days a week to save a substantial amount over time.,New York
+B456,30,Dining Out,6/23/2023,Coffee Shop - Morning Coffee,**Morning Coffee:** Consider making coffee at home a few days a week to save money over time.,Los Angeles
+B456,20,Dining Out,5/19/2023,Coffee Shop - Morning Coffee,**Coffee Shop - Morning Coffee:** Consider making coffee at home to save money on daily discretionary spending.,Boston
+B456,30,Dining Out,6/5/2023,Coffee Shop - Morning Coffee,"**Coffee Shop - Morning Coffee:** Track small, recurring purchases as they can significantly impact your budget.",New York
+B456,30,Dining Out,7/26/2023,Coffee Shop - Morning Coffee,**Coffee Shop - Morning Coffee:** Prepare coffee at home to significantly cut down on daily discretionary spending.,New York
+B456,30,Dining Out,5/2/2023,Coffee Shop - Morning Coffee,"Be mindful of small, recurring purchases; they can significantly impact your budget.",Boston
+B456,30,Dining Out,3/27/2023,Coffee Shop - Morning Coffee,**Coffee Shop - Morning Coffee:** Track small daily purchases; they add up and might reveal areas for savings.,Boston
+B456,30,Dining Out,10/25/2023,Coffee Shop - Morning Coffee,**Coffee Shop - Morning Coffee:** Track small discretionary purchases like coffee; they add up quickly.,San Francisco
+B456,50,Credit Card Payment,8/18/2023,Credit Card Payment,**Credit Card Payment:** Aim to pay your credit card balance in full each month to avoid interest.,Chicago
+B456,50,Credit Card Payment,3/13/2023,Credit Card Payment,**Credit Card Payment:** Aim to pay more than the minimum to reduce interest charges and pay off your balance faster.,San Francisco
+B456,50,Credit Card Payment,5/22/2023,Credit Card Payment,**Credit Card Payment:** Aim to pay your credit card balance in full each month to avoid interest charges.,New York
+B456,15,Dining Out,5/11/2023,Dining Out - Indian Restaurant,Budget for dining out and try to cook more meals at home to save a significant amount over time.,Boston
+B456,15,Dining Out,8/4/2023,Dining Out - Indian Restaurant,**Dining Out - Indian Restaurant:** Budget for discretionary spending and try cooking at home more often to save.,Chicago
+B456,15,Dining Out,4/5/2023,Dining Out - Japanese Restaurant,**Dining Out:** Try packing lunch or cooking more meals at home to significantly cut down on restaurant expenses.,Boston
+B456,15,Dining Out,6/14/2023,Dining Out - Mexican Restaurant,**Dining Out - Mexican Restaurant:** Set a realistic budget for dining out to control spending in this category.,New York
+B456,15,Dining Out,4/23/2023,Dining Out - Mexican Restaurant,Track your dining out expenses to identify saving opportunities.,Boston
+B456,15,Dining Out,7/17/2023,Dining Out - Sushi Restaurant,**Dining Out - Sushi Restaurant:** Opt for lunch specials or happy hour deals to enjoy dining out for less.,Boston
+B456,15,Dining Out,9/10/2023,Dining Out - Sushi Restaurant,**Transaction 9: Dining Out - Sushi Restaurant**,New York
+B456,45,Healthcare,1/17/2023,Doctor's Visit,**Doctor's Visit:** Understand your health insurance coverage to anticipate costs.,Los Angeles
+B456,45,Healthcare,10/19/2023,Doctor's Visit,**Doctor's Visit:** Utilize preventative care and annual check-ups to minimize unexpected health costs.,Boston
+B456,45,Healthcare,10/1/2023,Doctor's Visit,"**Doctor's Visit:** Maintain an emergency fund to cover unexpected healthcare costs, or ensure you have adequate health insurance.",Boston
+B456,45,Healthcare,4/26/2023,Doctor's Visit,Maintain adequate health insurance to cover potential medical costs.,New York
+B456,45,Healthcare,7/5/2023,Doctor's Visit,**Doctor's Visit:** Maintain an emergency fund to cover unexpected healthcare costs and understand your insurance benefits.,New York
+B456,45,Healthcare,4/8/2023,Doctor's Visit,**Doctor's Visit:** Understand your health insurance coverage to minimize out-of-pocket costs for medical appointments.,New York
+B456,45,Healthcare,6/17/2023,Doctor's Visit,**Doctor's Visit:** Understand your health insurance coverage to avoid surprise medical bills.,San Francisco
+B456,45,Healthcare,5/14/2023,Doctor's Visit,**Doctor's Visit:** Always understand your health insurance coverage to anticipate out-of-pocket costs.,New York
+B456,60,Income,9/22/2023,Earnings Credit,**Earnings Credit:** Consider automating a portion of your earnings into a savings or investment account.,Boston
+B456,60,Income,10/10/2023,Earnings Credit,**Earnings Credit:** Allocate a portion of any extra income directly to savings or debt repayment.,San Francisco
+B456,30,Fuel,1/14/2023,Gas Refill,**Gas Refill:** Combine errands to save on fuel and reduce trips.,Chicago
+B456,30,Fuel,1/2/2023,Gasoline Refill,**Gasoline Refill:** Combine errands and drive efficiently to conserve fuel.,Los Angeles
+B456,70,Groceries,8/27/2023,Grocery Shopping,**Grocery Shopping:** Plan your meals for the week and make a strict shopping list to avoid impulse purchases and reduce food waste.,New York
+B456,70,Groceries,3/4/2023,Grocery Shopping,**Grocery Shopping:** Plan your meals and make a shopping list to avoid impulse buys and reduce food waste.,New York
+B456,70,Groceries,2/26/2023,Grocery Shopping,**Grocery Shopping:** Always shop with a list and avoid shopping when hungry to prevent overspending.,New York
+B456,70,Groceries,2/1/2023,Grocery Shopping,**Grocery Shopping:** Plan your meals and shop with a list to avoid impulse purchases and reduce food waste.,Los Angeles
+B456,70,Groceries,5/31/2023,Grocery Shopping,**Grocery Shopping:** Always shop with a list and avoid going to the store when hungry to minimize impulse purchases.,San Francisco
+B456,150,Utilities,2/19/2023,Internet Bill Payment,**Internet Bill Payment:** Periodically compare internet providers and negotiate for better rates to reduce this recurring cost.,New York
+B456,25,Dining Out,2/7/2023,Lunch at Local Cafe,**Lunch at Local Cafe:** Pack your lunch a few times a week; it's often healthier and much cheaper than eating out.,New York
+B456,150,Loan Payment,4/11/2023,Mortgage Payment,**Mortgage Payment:** Always pay your mortgage on time to avoid late fees and protect your credit score.,Los Angeles
+B456,150,Loan Payment,6/2/2023,Mortgage Payment,**Mortgage Payment:** Explore making bi-weekly payments; it can help pay off your mortgage faster and save on interest over time.,Los Angeles
+B456,150,Loan Payment,4/29/2023,Mortgage Payment,Consider making extra principal payments to reduce your mortgage interest and term.,Los Angeles
+B456,150,Loan Payment,10/4/2023,Mortgage Payment,**Mortgage Payment:** Always prioritize on-time mortgage payments to protect your credit and home equity.,Chicago
+B456,150,Loan Payment,7/23/2023,Mortgage Payment,**Mortgage Payment:** Consider making extra payments when possible to reduce interest and pay off your mortgage sooner.,Chicago
+B456,150,Loan Payment,8/29/2023,Mortgage Payment,**Mortgage Payment:** Explore making additional principal payments when possible to significantly reduce the total interest paid over time.,Chicago
+B456,25,Entertainment,2/23/2023,Movie Theater Tickets,**Movie Theater Tickets:** Look for matinee prices or free entertainment options to save money.,Chicago
+B456,20,Entertainment,1/26/2023,Movie Tickets,"**Movie Tickets:** Look for matinee showtimes, loyalty programs, or consider streaming services for a more cost-effective entertainment option.",New York
+B456,30,Entertainment,2/28/2023,Movie Tickets,**Movie Tickets:** Explore streaming services or matinee showings for more budget-friendly entertainment.,New York
+B456,30,Subscriptions,2/11/2023,Online Gaming Subscription,**Online Gaming Subscription:** Periodically review all your subscriptions and cancel any you no longer actively use or enjoy.,Los Angeles
+B456,40,Shopping,5/25/2023,Online Shopping,**Online Shopping:** Always check for coupon codes or compare prices across different retailers before finalizing a purchase.,Online
+B456,150,Shopping,1/8/2023,Online Shopping,**Online Shopping:** Pause before buying; ask if it's a want or a need.,Online
+B456,20,Online Shopping,8/15/2023,Online Shopping - Electronics,**Online Shopping - Electronics:** Pause before buying; ask if it's a need or an impulse purchase.,San Francisco
+B456,60,Income,7/29/2023,Paycheck Deposit,**Paycheck Deposit:** Automate a portion of your income to go directly into savings or investment accounts.,Los Angeles
+B456,60,Income,1/29/2023,Paycheck Deposit,**Paycheck Deposit:** Automate a portion of your income to go directly into savings before you have a chance to spend it.,Los Angeles
+B456,60,Income,5/5/2023,Paycheck Deposit,Automate a portion of your paycheck to go directly into savings or an investment account.,New York
+B456,60,Income,6/8/2023,Paycheck Deposit,**Paycheck Deposit:** Automate a portion of each paycheck to go directly into savings or investments.,San Francisco
+B456,60,Income,6/26/2023,Paycheck Deposit,**Paycheck Deposit:** Automate a portion of your income to go directly into a savings account.,Chicago
+B456,15,Utilities,2/2/2023,Phone Bill Payment,**Phone Bill Payment:** Review your phone plan annually to ensure you're getting the best value for your usage.,Los Angeles
+B456,40,Shopping,7/8/2023,Point of Sale Shopping,**Point of Sale Shopping:** Differentiate between needs and wants; pause before buying to avoid unnecessary impulse purchases.,Chicago
+B456,120,Rent,3/1/2023,Rent Payment,**Rent Payment:** Ensure your housing costs fit comfortably within your budget (ideally under 30% of your gross income).,Chicago
+B456,120,Rent,3/19/2023,Rent Payment,**Rent Payment:** Always prioritize your rent payment to maintain housing stability and avoid late fees.,Chicago
+B456,120,Rent,8/24/2023,Rent Payment,"**Rent Payment:** Aim to keep your total housing costs, including utilities, below 30% of your gross income.",Chicago
+B456,120,Rent,5/28/2023,Rent Payment,**Rent Payment:** Automate your rent payment to ensure it's always paid on time and avoid potential late fees.,Chicago
+B456,10,Dining Out,1/23/2023,Snack Purchase,**Snack Purchase:** Plan and pack snacks from home to avoid impulse purchases and save money.,Chicago
+B456,40,Utilities,3/25/2023,Utility Bill Payment,**Utility Bill Payment:** Look for ways to conserve energy and water to lower future bills.,New York
+B456,40,Utilities,2/10/2023,Utility Bill Payment,**Utility Bill Payment:** Look for ways to conserve energy to lower future utility bills.,Los Angeles
+B456,40,Utilities,3/7/2023,Utility Bill Payment,**Utility Bill Payment:** Look for ways to conserve energy and water to potentially lower your monthly bills.,New York
+B456,40,Utilities,8/12/2023,Utility Bill Payment,**Utility Bill Payment:** Consider setting up auto-pay to avoid late fees and ensure timely payments.,Boston
+C789,120,Automotive,1/18/2023,Car Repair,**Car Repair:** Maintain an emergency fund for unexpected expenses like car repairs.,Chicago
+C789,35,Automotive,3/8/2023,Car Repair - Auto Shop,**Car Repair:** Build an emergency fund for unexpected expenses like car repairs to avoid going into debt.,San Francisco
+C789,35,Automotive,3/26/2023,Car Repair - Auto Shop,**Car Repair - Auto Shop:** Maintain an emergency fund specifically for unexpected car repairs.,San Francisco
+C789,35,Automotive,8/13/2023,Car Repair - Auto Shop,**Car Repair - Auto Shop:** Build an emergency fund for unexpected expenses like car repairs.,Chicago
+C789,20,Automotive,2/24/2023,Car Wash,**Car Wash:** Consider washing your car yourself periodically to cut down on expenses.,Los Angeles
+C789,25,Dining Out,1/6/2023,Coffee Shop - Coffee,**Coffee Shop - Coffee:** Consider brewing coffee at home to significantly reduce daily spending.,Seattle
+C789,20,Dining Out,2/17/2023,Coffee Shop - Morning Coffee,**Coffee Shop - Morning Coffee:** Track small daily purchases; they add up quickly and can impact your budget significantly.,Chicago
+C789,20,Dining Out,9/2/2023,Coffee Shop - Morning Coffee,**Transaction 1: Coffee Shop - Morning Coffee**,Chicago
+C789,20,Dining Out,7/9/2023,Coffee Shop - Morning Coffee,**Coffee Shop - Morning Coffee:** Consider making coffee at home to save a significant amount over time.,Los Angeles
+C789,50,Credit Card Payment,7/12/2023,Credit Card Payment,**Credit Card Payment:** Aim to pay your credit card balance in full each month to avoid interest charges and debt.,Boston
+C789,50,Credit Card Payment,3/31/2023,Credit Card Payment,**Credit Card Payment:** Aim to pay your credit card balance in full each month to avoid interest charges.,San Francisco
+C789,50,Credit Card Payment,4/18/2023,Credit Card Payment,**Credit Card Payment:** Aim to pay your credit card balance in full each month to avoid interest charges.,San Francisco
+C789,50,Credit Card Payment,9/23/2023,Credit Card Payment,**Credit Card Payment:** Always aim to pay your credit card balance in full and on time to avoid interest and fees.,San Francisco
+C789,50,Credit Card Payment,5/6/2023,Credit Card Payment,Aim to pay more than the minimum on your credit card to reduce interest and pay off debt faster.,San Francisco
+C789,50,Credit Card Payment,10/11/2023,Credit Card Payment,**Credit Card Payment:** Aim to pay your credit card balance in full each month to avoid interest charges.,New York
+C789,50,Credit Card Payment,6/27/2023,Credit Card Payment,**Credit Card Payment:** Aim to pay more than the minimum due to reduce interest and pay off debt faster.,Los Angeles
+C789,40,Dining Out,1/30/2023,Dinner at Italian Restaurant,"**Dinner at Italian Restaurant:** Try cooking at home more often, or look for restaurant deals, happy hour specials, or BYOB options to cut dining costs.",New York
+C789,55,Fuel,2/5/2023,Gasoline Refill,**Gasoline Refill:** Group your errands or consider alternative transport options to reduce fuel consumption.,San Francisco
+C789,75,Fuel,1/21/2023,Gasoline Refill,**Gasoline Refill:** Use a gas price app to find the cheapest fuel in your area and maximize your vehicle's fuel efficiency.,New York
+C789,60,Groceries,2/6/2023,Grocery Shopping,**Grocery Shopping:** Always shop with a list and avoid going to the store when hungry to prevent impulse buys.,San Francisco
+C789,70,Groceries,10/20/2023,Grocery Shopping,**Grocery Shopping:** Plan your meals and make a shopping list to avoid impulse buys and reduce food waste.,Los Angeles
+C789,70,Groceries,1/12/2023,Grocery Shopping,**Grocery Shopping:** Create a grocery list and stick to it to avoid impulse buys.,San Francisco
+C789,70,Groceries,10/2/2023,Grocery Shopping,**Grocery Shopping:** Plan your meals and make a list before shopping to avoid impulse buys.,San Francisco
+C789,70,Groceries,9/14/2023,Grocery Shopping,**Grocery Shopping:** Plan meals and make a shopping list to avoid impulse purchases and reduce food waste.,San Francisco
+C789,70,Groceries,4/27/2023,Grocery Shopping,Plan your meals and use a shopping list to save on groceries.,San Francisco
+C789,70,Groceries,4/9/2023,Grocery Shopping,**Grocery Shopping:** Plan your meals and create a shopping list to avoid impulse buys and reduce food waste.,San Francisco
+C789,70,Groceries,7/21/2023,Grocery Shopping,**Grocery Shopping:** Plan your meals and make a grocery list to avoid impulse purchases and save money.,San Francisco
+C789,70,Groceries,7/6/2023,Grocery Shopping,**Grocery Shopping:** Create a meal plan and grocery list before shopping to stick to your budget and avoid impulse buys.,Chicago
+C789,60,Subscriptions,5/26/2023,Gym Membership Renewal,"**Gym Membership Renewal:** Evaluate if you're consistently using it; if not, explore cheaper fitness alternatives like home workouts or outdoor activities.",San Francisco
+C789,60,Subscriptions,3/17/2023,Gym Membership Renewal,"**Gym Membership Renewal:** Evaluate if you're using it enough to justify the cost; if not, consider alternative fitness options.",San Francisco
+C789,60,Subscriptions,8/22/2023,Gym Membership Renewal,"**Gym Membership Renewal:** Assess your usage; if low, explore cheaper alternatives like home workouts or community centers.",New York
+C789,60,Subscriptions,2/27/2023,Gym Membership Renewal,"**Gym Membership Renewal:** Evaluate your usage to ensure you're getting value, or explore cheaper alternatives.",San Francisco
+C789,60,Utilities,2/11/2023,Mobile Phone Bill Payment,**Mobile Phone Bill Payment:** Review your phone plan annually to ensure you're not overpaying for unused data or features.,New York
+C789,150,Loan Payment,2/15/2023,Mortgage Payment,**Mortgage Payment:** Consider making an extra principal payment when possible to reduce your loan term and total interest paid.,Los Angeles
+C789,25,Entertainment,5/23/2023,Movie Theater Tickets,**Movie Theater Tickets:** Set a specific entertainment budget each month to enjoy activities without guilt.,Los Angeles
+C789,25,Entertainment,2/14/2023,Movie Theater Tickets,**Movie Theater Tickets:** Set a monthly budget for entertainment to enjoy leisure activities without overspending.,Los Angeles
+C789,25,Entertainment,3/14/2023,Movie Theater Tickets,**Movie Theater Tickets:** Look for matinee prices or consider streaming services for a cheaper movie night in.,Chicago
+C789,25,Entertainment,8/19/2023,Movie Theater Tickets,**Movie Theater Tickets:** Allocate a specific budget for entertainment to avoid overspending.,Los Angeles
+C789,30,Subscriptions,3/2/2023,Online Gaming Subscription,**Online Gaming Subscription:** Regularly review all subscriptions and cancel any you don't actively use.,Los Angeles
+C789,30,Subscriptions,3/20/2023,Online Gaming Subscription,**Online Gaming Subscription:** Review all your subscriptions regularly and cancel any you no longer actively use.,Los Angeles
+C789,30,Subscriptions,2/8/2023,Online Gaming Subscription,**Online Gaming Subscription:** Regularly review all your subscriptions to cancel any you no longer use or value.,Chicago
+C789,30,Subscriptions,5/29/2023,Online Gaming Subscription,**Online Gaming Subscription:** Regularly review all your subscriptions and cancel any you don't use frequently to free up cash.,New York
+C789,40,Shopping,7/15/2023,Online Shopping,**Online Shopping:** Add items to your cart and wait 24 hours before purchasing to avoid impulse buys.,Online
+C789,40,Shopping,5/9/2023,Online Shopping,"Before making any online purchase, compare prices from different retailers to find the best deal.",Online
+C789,40,Shopping,10/14/2023,Online Shopping,"**Online Shopping:** Before buying, leave items in your cart for 24 hours to avoid impulse purchases.",Online
+C789,40,Shopping,2/26/2023,Online Shopping,**Online Shopping:** Wait 24 hours before making non-essential online purchases to avoid impulse buys.,Online
+C789,40,Shopping,9/8/2023,Online Shopping,**Transaction 7: Online Shopping**,Online
+C789,40,Shopping,8/2/2023,Online Shopping,"**Online Shopping:** Pause before you buy; often, waiting a day can prevent impulse purchases.",Online
+C789,40,Shopping,6/12/2023,Online Shopping,**Online Shopping:** Create a shopping list and stick to it to prevent impulse purchases.,Online
+C789,20,Online Shopping,6/24/2023,Online Shopping - Electronics,**Online Shopping - Electronics:** Always compare prices from multiple retailers before making an online purchase.,Boston
+C789,20,Online Shopping,6/6/2023,Online Shopping - Electronics,**Online Shopping - Electronics:** Pause before buying online; compare prices and consider if it's a need or a want.,Los Angeles
+C789,20,Online Shopping,5/3/2023,Online Shopping - Electronics,"For small online purchases, always check if you truly need it or if it's an impulse buy.",Chicago
+C789,20,Online Shopping,7/27/2023,Online Shopping - Electronics,**Online Shopping - Electronics:** Always compare prices and read reviews across multiple retailers before making online purchases.,Boston
+C789,20,Online Shopping,10/8/2023,Online Shopping - Electronics,**Online Shopping - Electronics:** Always compare prices from different retailers and check reviews before making online purchases.,Los Angeles
+C789,20,Online Shopping,9/20/2023,Online Shopping - Electronics,**Online Shopping - Electronics:** Always compare prices from multiple retailers before buying and consider if it's a need or a want.,Los Angeles
+C789,60,Income,2/21/2023,Paycheck Deposit,**Paycheck Deposit:** Automate a portion of your paycheck to go directly into savings or investment accounts first.,New York
+C789,45,Healthcare,2/23/2023,Pharmacy Purchase,**Pharmacy Purchase:** Ask your pharmacist about generic alternatives to save on medication.,New York
+C789,35,Healthcare,1/27/2023,Pharmacy Purchase,"**Pharmacy Purchase:** Ask your pharmacist about generic alternatives or over-the-counter options, which are often cheaper than brand-name drugs.",San Francisco
+C789,45,Healthcare,1/9/2023,Pharmacy Purchase,**Pharmacy Purchase:** Always ask your pharmacist about generic alternatives to save money.,Boston
+C789,120,Rent,9/11/2023,Rent Payment,**Transaction 10: Rent Payment**,Boston
+C789,120,Rent,7/3/2023,Rent Payment,**Rent Payment:** Ensure rent is a sustainable percentage of your income and consider automating the payment to avoid late fees.,Los Angeles
+C789,120,Rent,10/17/2023,Rent Payment,**Rent Payment:** Ensure your rent payment fits comfortably within the 30% rule of your income.,Chicago
+C789,120,Rent,8/5/2023,Rent Payment,**Rent Payment:** Always prioritize essential payments like rent to maintain housing security.,Los Angeles
+C789,120,Rent,4/24/2023,Rent Payment,Aim for rent to be less than 30% of your take-home income.,Chicago
+C789,120,Rent,5/12/2023,Rent Payment,Ensure your rent or housing costs align with the recommended 30% rule of your gross income.,Chicago
+C789,120,Rent,9/29/2023,Rent Payment,"**Rent Payment:** Ensure your rent payment fits comfortably within your budget, ideally following the 50/30/20 rule (50% needs, 30% wants, 20% savings/debt).",Los Angeles
+C789,120,Rent,4/6/2023,Rent Payment,**Rent Payment:** Always prioritize essential housing costs and aim to build an emergency fund for these expenses.,Chicago
+C789,100,Dining Out,2/3/2023,Restaurant Dinner,**Restaurant Dinner:** Try cooking at home more often to significantly reduce your dining out expenses.,San Francisco
+C789,25,Dining Out,2/9/2023,Snack Purchase,**Snack Purchase:** Pack snacks from home to avoid expensive convenience store purchases throughout your day.,Boston
+C789,10,Dining Out,3/11/2023,Snack Purchase,"**Snack Purchase:** Pack snacks from home to curb small, frequent spending on convenience items.",Los Angeles
+C789,10,Dining Out,5/20/2023,Snack Purchase,**Snack Purchase:** Pack your own snacks to avoid overspending on convenience purchases throughout the day.,Chicago
+C789,10,Dining Out,8/16/2023,Snack Purchase,**Snack Purchase:** Pack snacks from home to cut down on frequent small purchases.,New York
+C789,15,Dining Out,1/15/2023,Snack Purchase,**Snack Purchase:** Consider packing snacks from home to save money daily.,San Francisco
+C789,15,Dining Out,2/20/2023,Snack Purchase,"**Snack Purchase:** Pack snacks from home to save on small, frequent purchases.",San Francisco
+C789,40,Utilities,10/5/2023,Utility Bill Payment,**Utility Bill Payment:** Review your utility usage periodically for ways to reduce consumption and save money.,New York
+C789,40,Utilities,9/17/2023,Utility Bill Payment,**Utility Bill Payment:** Implement energy-saving habits and check for budget billing options to stabilize monthly costs.,Chicago
+C789,40,Utilities,7/24/2023,Utility Bill Payment,**Utility Bill Payment:** Look for ways to conserve energy and water to lower your monthly utility costs.,Los Angeles
+C789,40,Utilities,6/21/2023,Utility Bill Payment,**Utility Bill Payment:** Look for energy-saving habits or devices to lower your utility costs over time.,San Francisco
+C789,40,Utilities,4/30/2023,Utility Bill Payment,Look for ways to conserve energy to help lower your utility bills.,New York
+C789,40,Utilities,4/12/2023,Utility Bill Payment,**Utility Bill Payment:** Look for small ways to reduce energy consumption at home to lower your monthly utility bills.,New York
+C789,40,Utilities,10/23/2023,Utility Bill Payment,**Utility Bill Payment:** Look for ways to conserve energy and water to lower your monthly bills.,Boston

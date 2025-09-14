@@ -1,0 +1,195 @@
+<resources>
+
+    <!-- Global App Theme -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:fontFamily">@font/sans_serif</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <!-- Nav Header -->
+    <style name="NavHeaderContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/nav_header_height</item>
+        <item name="android:background">@drawable/side_nav_bar</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingTop">@dimen/activity_vertical_margin</item>
+        <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingBottom">@dimen/activity_vertical_margin</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark</item>
+    </style>
+
+    <style name="NavHeaderTitle" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:paddingTop">@dimen/nav_header_vertical_spacing</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="NavHeaderSubtitle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Login Activity -->
+    <style name="LoginTitle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/green_dark</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LoginButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_height">56dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="backgroundTint">@color/green_dark</item>
+    </style>
+
+    <style name="LoginOutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_height">56dp</item>
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="strokeColor">@color/gray_dark</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
+    <!-- Generic Card Style -->
+    <style name="SummaryCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:elevation">10dp</item>
+        <item name="cardCornerRadius">10dp</item>
+    </style>
+
+    <!-- Title Texts e.g. Breakdown, Tips -->
+    <style name="SummaryTitleText">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Normal body text inside cards -->
+    <style name="SummaryBodyText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- Legend text (like Rent/Mortgage, Utilities etc) -->
+    <style name="LegendText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- Back Button -->
+    <style name="BackButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_height">48dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="strokeColor">@color/green_dark</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <!-- Style for Transaction Card -->
+    <style name="TransactionCard" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="cardElevation">6dp</item>
+        <item name="cardCornerRadius">8dp</item>
+    </style>
+
+    <!-- Parent layout (row container) -->
+    <style name="TransactionRowLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <!-- Reusable Text Style for all 3 columns -->
+    <style name="TransactionText">
+        <item name="android:layout_width">0dp</item> <!-- important for weights -->
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- 🔍 SearchView Style -->
+    <style name="HistorySearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:background">@drawable/light_gray_rounded_corner</item>
+        <item name="android:iconifiedByDefault">false</item>
+        <item name="queryBackground">@android:color/transparent</item>
+    </style>
+
+    <!-- 📋 RecyclerView Style -->
+    <style name="HistoryRecyclerView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item> <!-- match constraints -->
+        <item name="android:clipToPadding">false</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
+    <!-- ➕ Floating Action Button Style -->
+    <style name="HistoryFab" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="android:src">@drawable/addbutton_v3</item>
+        <item name="tint">@android:color/white</item>
+        <item name="useCompatPadding">true</item>
+    </style>
+
+    <!-- ⬅️ Back Button Style -->
+    <style name="HistoryBackButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">Back</item>
+        <item name="strokeColor">@color/green_dark</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <!-- Generic Card Style -->
+    <style name="HomeCard" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:elevation">10dp</item>
+        <item name="cardCornerRadius">10dp</item>
+    </style>
+
+    <!-- Title Text (like “Net Worth”) -->
+    <style name="HomeCardTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Value Text (like Net Worth Amount) -->
+    <style name="HomeCardValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Buttons on Home Screen -->
+    <style name="HomeButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="strokeColor">@color/green_dark</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>

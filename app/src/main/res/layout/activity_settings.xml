@@ -1,301 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout5"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="391dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="121dp"
-                android:layout_height="20dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="66dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="204dp"
-                android:layout_marginBottom="11dp"
-                android:text="Light/Dark Mode" />
-
-            <Switch
-                android:id="@+id/lightDarkModeSwitch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="261dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginEnd="84dp"
-                android:layout_marginBottom="5dp" />
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="391dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.0">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="66dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="233dp"
-                android:layout_marginBottom="9dp"
-                android:text="Notifications" />
-
-            <Switch
-                android:id="@+id/notificationsSwitch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="261dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginEnd="84dp"
-                android:layout_marginBottom="6dp" />
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
-        android:layout_width="391dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2"
-        app:layout_constraintVertical_bias="0.0">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/fontSize"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="66dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="234dp"
-                android:layout_marginBottom="12dp"
-                android:text="Font Size" />
-
-            <SeekBar
-                android:id="@+id/fontSizeSeekBar"
-                style="@style/Widget.AppCompat.SeekBar.Discrete"
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="261dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginEnd="11dp"
-                android:layout_marginBottom="8dp"
-                android:max="4"
-                android:progress="2" />
-
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView4"
-        android:layout_width="391dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3"
-        app:layout_constraintVertical_bias="0.0">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/languages"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="66dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginEnd="234dp"
-                android:layout_marginBottom="10dp"
-                android:text="Languages" />
-
-            <Spinner
-                android:id="@+id/languagesDropdown"
-                android:layout_width="114dp"
-                android:layout_height="24dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="261dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="10dp" />
-
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView5"
-        android:layout_width="391dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView4"
-        app:layout_constraintVertical_bias="0.0">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/signOut"
-                android:layout_width="100dp"
-                android:layout_height="18dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="66dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="234dp"
-                android:layout_marginBottom="11dp"
-                android:text="Sign Out" />
-
-            <Button
-                android:id="@+id/signOutButton"
-                android:layout_width="wrap_content"
-                android:layout_height="29dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="261dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="35dp"
-                android:layout_marginBottom="6dp"
-                android:backgroundTint="#F44336"
-                android:text="Sign Out"
-                android:textSize="8sp" />
-
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView6"
-        android:layout_width="391dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="433dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView5"/>
-
+    <!-- Page Title -->
     <TextView
-        android:id="@+id/settings"
-        android:layout_width="89dp"
-        android:layout_height="32dp"
+        android:id="@+id/settingsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-medium"
         android:text="Settings"
+        android:textColor="@color/green_dark"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04000002" />
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Profile Picture -->
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="157dp"
-        android:layout_height="144dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        android:id="@+id/profileImage"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Profile Picture"
+        android:padding="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profilepicture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settings"
-        app:layout_constraintVertical_bias="0.185"
-        app:srcCompat="@drawable/profilepicture" />
+        app:layout_constraintTop_toBottomOf="@id/settingsTitle" />
 
+    <!-- Profile Name -->
     <TextView
         android:id="@+id/profileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif"
         android:text="Profile Name"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        android:textColor="@color/gray_dark"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.166" />
+        app:layout_constraintTop_toBottomOf="@id/profileImage" />
 
+    <!-- Settings Options -->
+    <LinearLayout
+        android:id="@+id/settingsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:divider="?android:attr/dividerVertical"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileName">
+
+        <!-- Light/Dark Mode -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Light/Dark Mode"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="16sp" />
+
+                <Switch
+                    android:id="@+id/lightDarkModeSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Notifications -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Notifications"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="16sp" />
+
+                <Switch
+                    android:id="@+id/notificationsSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Font Size -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Font Size"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="16sp" />
+
+                <SeekBar
+                    android:id="@+id/fontSizeSeekBar"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:max="4"
+                    android:progress="2" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Languages -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Languages"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/languagesDropdown"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Sign Out -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sign Out"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/signOutButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/green_dark"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="Sign Out"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <!-- Back Button -->
     <Button
         android:id="@+id/backButton"
-        android:layout_width="160dp"
-        android:layout_height="38dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/gray_dark"
+        android:fontFamily="sans-serif-medium"
         android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView5"
-        app:layout_constraintVertical_bias="0.184" />
+        app:layout_constraintTop_toBottomOf="@id/settingsContainer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

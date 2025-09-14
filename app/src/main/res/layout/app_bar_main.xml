@@ -4,22 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
+    <!-- App Bar -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.MyMoneyTracker.AppBarOverlay">
+        android:theme="@style/Theme.MyMoneyTracker.AppBarOverlay"
+        android:background="@color/green_dark"
+        app:elevation="4dp">
 
+        <!-- Toolbar -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/green_dark"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+            android:title="My Money Tracker"
+            android:titleTextColor="@color/white"
+            android:titleTextAppearance="@style/ToolbarTitleStyle"
+            app:titleCentered="true"
             app:popupTheme="@style/Theme.MyMoneyTracker.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <!-- Main Content -->
+    <include
+        layout="@layout/content_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:padding="16dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

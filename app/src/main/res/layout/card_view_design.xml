@@ -2,47 +2,25 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:layout_margin="10dp"
-    app:cardElevation="6dp">
+    style="@style/TransactionCard">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:padding="5dp">
+        style="@style/TransactionRowLayout">
 
         <TextView
             android:id="@+id/textDesignDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Date"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            style="@style/TransactionText"
+            android:text="Date" />
 
         <TextView
             android:id="@+id/textDesignMoney"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Money"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            style="@style/TransactionText"
+            android:text="Money" />
 
         <TextView
             android:id="@+id/textDesignType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Type"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            style="@style/TransactionText"
+            android:text="Type" />
 
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

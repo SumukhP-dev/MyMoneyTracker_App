@@ -105,10 +105,10 @@ class AddDataFragment : Fragment() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if ((viewModel.textSizeBefore.value!! < count) &&
-                    (binding.dateText.text.length == 2 || binding.dateText.text.length == 5)
+                    (binding.dateText.text?.length == 2 || binding.dateText.text?.length == 5)
                 ) {
                     binding.dateText.setText("${binding.dateText.text}/")
-                    binding.dateText.setSelection(binding.dateText.text.length)
+                    binding.dateText.setSelection(binding.dateText.text?.length ?: 0)
                 }
             }
         })

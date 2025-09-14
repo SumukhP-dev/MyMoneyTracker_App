@@ -30,7 +30,7 @@ open class LoginActivity : AppCompatActivity() {
         binding.createAccountButton.setOnClickListener {
             lifecycleScope.launch(Dispatchers.Main) {
                 val success = viewModel.createAccount(binding.email.text.toString()
-                    .substring(0, binding.email.text.length - 1),
+                    .substring(0, binding.email.text?.length?.minus(1) ?: 0),
                     binding.password.text.toString())
                 if (success) {
                     Log.d("create", "Custom backend login success")
